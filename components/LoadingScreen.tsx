@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { siteConfig } from '@/config/site';
+import Logo from './Logo';
 
 export default function LoadingScreen() {
   const [visible, setVisible] = useState(true);
@@ -30,22 +30,13 @@ export default function LoadingScreen() {
           className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-5 bg-charcoal-950"
           aria-hidden
         >
-          <motion.span
-            initial={{ opacity: 0, scale: 0.9 }}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="flex h-16 w-16 items-center justify-center rounded-full border border-gold-400/40 font-serif text-2xl text-gold-300"
           >
-            {siteConfig.monogram}
-          </motion.span>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-xs uppercase tracking-widest2 text-ivory-100/50"
-          >
-            {siteConfig.name}
-          </motion.p>
+            <Logo light stacked />
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>

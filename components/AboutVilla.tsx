@@ -18,18 +18,18 @@ export default function AboutVilla() {
         <ScrollReveal>
           <p className="eyebrow">The Villa</p>
           <h2 className="section-heading mt-3">
-            A Modern Estate, <span className="italic text-gold-700">Designed to Disappear</span> Into Its Views
+            A Modern Villa, <span className="italic text-gold-700">Tucked Into</span> the North Goa Coast
           </h2>
           <div className="mt-6 space-y-4 text-charcoal-700">
             <p>
-              Set on a private cliffside parcel, Rivanaa Rental is a five-bedroom architectural villa built around
-              uninterrupted ocean views. Warm minimalism, natural stone, and hand-selected furnishings create a
-              calm, restorative backdrop for a genuinely private escape.
+              Set among the palms of North Goa, The Fern Key is a four-bedroom architectural villa built around
+              light and greenery — floor-to-ceiling glass, warm stone, and hand-selected furnishings across four
+              open levels create a calm, restorative backdrop for a genuinely private escape.
             </p>
             <p>
-              Every room opens onto the outdoors — from the ocean-facing living pavilion to the infinity pool
-              terrace — blurring the line between architecture and landscape. This is quiet luxury: understated,
-              considered, and entirely yours for the duration of your stay.
+              Every floor opens onto the outdoors — from the glass-walled living room to the private pool deck —
+              blurring the line between architecture and landscape. This is quiet luxury: understated, considered,
+              and entirely yours for the duration of your stay.
             </p>
           </div>
 
@@ -50,7 +50,7 @@ export default function AboutVilla() {
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-soft">
             <Image
               src="/media/gallery/about-villa.svg"
-              alt="Interior living pavilion of Rivanaa Rental"
+              alt="Interior living pavilion of The Fern Key"
               fill
               sizes="(min-width: 1024px) 40vw, 90vw"
               unoptimized

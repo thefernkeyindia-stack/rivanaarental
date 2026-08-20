@@ -19,7 +19,7 @@ export const galleryItems: GalleryItem[] = [
   { id: 'bed-2', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedrooms-2.svg', width: 1200, height: 1500, alt: 'Guest suite with private terrace' },
   { id: 'bed-3', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedrooms-3.svg', width: 1200, height: 900, alt: 'Junior suite with garden view' },
 
-  { id: 'pool-1', category: 'Pool', type: 'image', src: '/media/gallery/pool-1.svg', width: 1200, height: 900, alt: 'Infinity pool overlooking the coastline' },
+  { id: 'pool-1', category: 'Pool', type: 'image', src: '/media/gallery/pool-1.svg', width: 1200, height: 900, alt: 'Private pool deck framed by palms' },
   { id: 'pool-2', category: 'Pool', type: 'image', src: '/media/gallery/pool-2.svg', width: 1200, height: 1500, alt: 'Pool deck loungers at sunset' },
   { id: 'pool-3', category: 'Pool', type: 'image', src: '/media/gallery/pool-3.svg', width: 1200, height: 900, alt: 'Pool illuminated at night' },
 

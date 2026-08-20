@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
   <defs>
     <linearGradient id="grad-hero-3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#141312"/>
-      <stop offset="100%" stop-color="#1a1611"/>
+      <stop offset="0%" stop-color="#123522"/>
+      <stop offset="100%" stop-color="#16281c"/>
     </linearGradient>
     <radialGradient id="glow-hero-3" cx="50%" cy="35%" r="75%">
       <stop offset="0%" stop-color="#e4cb98" stop-opacity="0.22"/>
@@ -13,12 +13,9 @@
   <rect width="1920" height="1080" fill="url(#glow-hero-3)"/>
   <line x1="0" y1="154.28571428571428" x2="1920" y2="154.28571428571428" stroke="#e4cb98" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="308.57142857142856" x2="1920" y2="308.57142857142856" stroke="#e4cb98" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="462.85714285714283" x2="1920" y2="462.85714285714283" stroke="#e4cb98" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="617.1428571428571" x2="1920" y2="617.1428571428571" stroke="#e4cb98" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="771.4285714285713" x2="1920" y2="771.4285714285713" stroke="#e4cb98" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="925.7142857142857" x2="1920" y2="925.7142857142857" stroke="#e4cb98" stroke-opacity="0.05" stroke-width="1"/>
   <rect x="0" y="0" width="1920" height="1080" fill="none" stroke="#e4cb98" stroke-opacity="0.35" stroke-width="1"/>
-  <g opacity="0.45" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">
-    <text x="960" y="172.8" fill="#f7f3ec" font-size="59.4" letter-spacing="2">Ocean-View Terrace</text>
-    <text x="960" y="226.26000000000002" fill="#e4cb98" font-family="Helvetica, Arial, sans-serif" font-size="19.008" letter-spacing="6">RIVANAA RENTAL</text>
-  </g>
+  
   <g opacity="0.75">
     <circle cx="1874" cy="46" r="22" fill="none" stroke="#e4cb98" stroke-width="1"/>
-    <text x="1874" y="53" fill="#e4cb98" font-family="Georgia, serif" font-size="20" text-anchor="middle">R</text>
+    <text x="1874" y="53" fill="#e4cb98" font-family="Georgia, serif" font-size="20" text-anchor="middle">F</text>
   </g>
 </svg>

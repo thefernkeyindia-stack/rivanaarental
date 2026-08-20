@@ -17,12 +17,14 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const PUBLIC = join(__dirname, '..', 'public', 'media');
 
 const PALETTE = {
-  charcoal: '#141312',
-  charcoalDeep: '#0b0a09',
-  ivory: '#f7f3ec',
+  charcoal: '#123522',
+  charcoalDeep: '#0d1f16',
+  charcoalWarm: '#17301f',
+  ivory: '#faf4e7',
   gold: '#b78a4a',
   goldLight: '#e4cb98',
   olive: '#6b6b4d',
+  ocean: '#2f7f8c',
 };
 
 function escapeXml(str) {
@@ -37,15 +39,15 @@ function escapeXml(str) {
 function sceneSvg({
   width,
   height,
-  label,
-  sublabel = 'RIVANAA RENTAL',
+  // Falsy label (the default) renders no caption at all — used for hero
+  // slides, where any baked-in text competes with the real H1/nav for
+  // attention. Pass a string to get a centered caption (gallery tiles etc).
+  label = null,
+  sublabel = 'THE FERN KEY',
   from = PALETTE.charcoal,
   to = PALETTE.charcoalDeep,
   accent = PALETTE.gold,
   id,
-  // Fraction of height where the label sits. Default centers it; hero
-  // slides push it near the top so it never collides with real page copy
-  // (the H1/tagline/CTAs that sit over the lower two-thirds of the hero).
   labelY = 0.5,
   labelOpacity = 0.9,
 }) {
@@ -57,6 +59,17 @@ function sceneSvg({
     const y = (height / (lineCount + 1)) * (i + 1);
     return `<line x1="0" y1="${y}" x2="${width}" y2="${y}" stroke="${accent}" stroke-opacity="0.05" stroke-width="1"/>`;
   }).join('');
+
+  const labelMarkup = label
+    ? `<g opacity="${labelOpacity}" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">
+    <text x="${width / 2}" y="${textY}" fill="${PALETTE.ivory}" font-size="${fontSize}" letter-spacing="2">${escapeXml(
+      label,
+    )}</text>
+    <text x="${width / 2}" y="${textY + fontSize * 0.9}" fill="${accent}" font-family="Helvetica, Arial, sans-serif" font-size="${subFontSize}" letter-spacing="6">${escapeXml(
+      sublabel,
+    )}</text>
+  </g>`
+    : '';
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
   <defs>
@@ -73,17 +86,10 @@ function sceneSvg({
   <rect width="${width}" height="${height}" fill="url(#glow-${id})"/>
   ${lines}
   <rect x="0" y="0" width="${width}" height="${height}" fill="none" stroke="${accent}" stroke-opacity="0.35" stroke-width="1"/>
-  <g opacity="${labelOpacity}" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">
-    <text x="${width / 2}" y="${textY}" fill="${PALETTE.ivory}" font-size="${fontSize}" letter-spacing="2">${escapeXml(
-      label,
-    )}</text>
-    <text x="${width / 2}" y="${textY + fontSize * 0.9}" fill="${accent}" font-family="Helvetica, Arial, sans-serif" font-size="${subFontSize}" letter-spacing="6">${escapeXml(
-      sublabel,
-    )}</text>
-  </g>
+  ${labelMarkup}
   <g opacity="0.75">
     <circle cx="${width - 46}" cy="46" r="22" fill="none" stroke="${accent}" stroke-width="1"/>
-    <text x="${width - 46}" y="53" fill="${accent}" font-family="Georgia, serif" font-size="20" text-anchor="middle">R</text>
+    <text x="${width - 46}" y="53" fill="${accent}" font-family="Georgia, serif" font-size="20" text-anchor="middle">F</text>
   </g>
 </svg>`;
 }
@@ -104,13 +110,6 @@ function avatarSvg({ initials, id, accent = PALETTE.gold }) {
 </svg>`;
 }
 
-function faviconSvg() {
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="${PALETTE.charcoal}"/>
-  <text x="32" y="42" fill="${PALETTE.gold}" font-family="Georgia, serif" font-size="34" text-anchor="middle">R</text>
-</svg>`;
-}
-
 function write(path, content) {
   mkdirSync(dirname(path), { recursive: true });
   writeFileSync(path, content, 'utf8');
@@ -118,21 +117,18 @@ function write(path, content) {
 }
 
 // --- Hero slides -----------------------------------------------------------
+// No baked-in caption: any text here would compete with the real H1 and the
+// transparent nav for attention. Pure atmospheric gradient only.
 [
-  { id: 'hero-1', label: 'Villa Exterior at Dusk', from: PALETTE.charcoal, to: PALETTE.charcoalDeep },
-  { id: 'hero-2', label: 'The Infinity Pool', from: '#101414', to: PALETTE.charcoalDeep, accent: PALETTE.gold },
-  { id: 'hero-3', label: 'Ocean-View Terrace', from: PALETTE.charcoal, to: '#1a1611', accent: PALETTE.goldLight },
-].forEach(({ id, ...rest }) =>
-  write(
-    join(PUBLIC, 'gallery', `${id}.svg`),
-    sceneSvg({ width: 1920, height: 1080, id, labelY: 0.16, labelOpacity: 0.45, ...rest }),
-  ),
-);
+  { id: 'hero-1', from: PALETTE.charcoal, to: PALETTE.charcoalDeep },
+  { id: 'hero-2', from: '#123a2e', to: PALETTE.charcoalDeep, accent: PALETTE.gold },
+  { id: 'hero-3', from: PALETTE.charcoal, to: '#16281c', accent: PALETTE.goldLight },
+].forEach(({ id, ...rest }) => write(join(PUBLIC, 'gallery', `${id}.svg`), sceneSvg({ width: 1920, height: 1080, id, ...rest })));
 
 // --- About section -----------------------------------------------------------
 write(
   join(PUBLIC, 'gallery', 'about-villa.svg'),
-  sceneSvg({ width: 1200, height: 1500, id: 'about', label: 'Living Pavilion', from: PALETTE.charcoal, to: '#1c1712' }),
+  sceneSvg({ width: 1200, height: 1500, id: 'about', label: 'Living Pavilion', from: PALETTE.charcoal, to: '#182a1c' }),
 );
 
 // --- Gallery grid ------------------------------------------------------------
@@ -154,7 +150,7 @@ galleryPlan.forEach(([slug, label, count]) => {
         id: `${slug}-${i}`,
         label: `${label} ${i}`,
         from: PALETTE.charcoal,
-        to: '#1a1712',
+        to: PALETTE.charcoalWarm,
       }),
     );
   }
@@ -162,24 +158,24 @@ galleryPlan.forEach(([slug, label, count]) => {
 
 write(
   join(PUBLIC, 'gallery', 'video-tour-poster.svg'),
-  sceneSvg({ width: 1600, height: 900, id: 'video-poster', label: 'Villa Video Tour', from: '#161311', to: PALETTE.charcoalDeep }),
+  sceneSvg({ width: 1600, height: 900, id: 'video-poster', label: 'Villa Video Tour', from: PALETTE.charcoalWarm, to: PALETTE.charcoalDeep }),
 );
 
 // --- 3D hotspot thumbnails -----------------------------------------------
 [
   ['hotspot-master-suite', 'Master Suite'],
-  ['hotspot-infinity-pool', 'Infinity Pool'],
+  ['hotspot-pool', 'Pool Deck'],
   ['hotspot-garden-lounge', 'Garden Lounge'],
   ['hotspot-kitchen', 'Chef Kitchen'],
 ].forEach(([id, label]) =>
-  write(join(PUBLIC, 'gallery', `${id}.svg`), sceneSvg({ width: 640, height: 480, id, label, from: PALETTE.charcoal, to: '#1a1611' })),
+  write(join(PUBLIC, 'gallery', `${id}.svg`), sceneSvg({ width: 640, height: 480, id, label, from: PALETTE.charcoal, to: PALETTE.charcoalWarm })),
 );
 
 // --- 360 fallback frames for low-power devices -----------------------------
 for (let i = 1; i <= 8; i += 1) {
   write(
     join(PUBLIC, 'gallery', `villa-360-${i}.svg`),
-    sceneSvg({ width: 1600, height: 1000, id: `360-${i}`, label: `360° View ${i} / 8`, from: PALETTE.charcoal, to: '#1a1611' }),
+    sceneSvg({ width: 1600, height: 1000, id: `360-${i}`, label: `360° View ${i} / 8`, from: PALETTE.charcoal, to: PALETTE.charcoalWarm }),
   );
 }
 
@@ -200,24 +196,12 @@ for (let i = 1; i <= 8; i += 1) {
   ['attraction-marina', 'Harbour Marina'],
   ['attraction-town', 'Historic Old Town'],
 ].forEach(([id, label]) =>
-  write(join(PUBLIC, 'gallery', `${id}.svg`), sceneSvg({ width: 800, height: 600, id, label, from: PALETTE.charcoal, to: '#1a1712' })),
+  write(join(PUBLIC, 'gallery', `${id}.svg`), sceneSvg({ width: 800, height: 600, id, label, from: PALETTE.charcoal, to: PALETTE.charcoalWarm })),
 );
 
-// --- OG image -------------------------------------------------------------
-write(
-  join(PUBLIC, 'brand', 'og-image.svg'),
-  sceneSvg({
-    width: 1200,
-    height: 630,
-    id: 'og',
-    label: 'Rivanaa Rental',
-    sublabel: 'A PRIVATE SANCTUARY OF MODERN LUXURY',
-    from: PALETTE.charcoal,
-    to: PALETTE.charcoalDeep,
-  }),
-);
-
-// --- Favicon ----------------------------------------------------------------
-write(join(PUBLIC, '..', 'favicon.svg'), faviconSvg());
+// Note: the logo, favicon (public/favicon.svg) and OG image
+// (public/media/brand/og-image.svg) are hand-authored brand assets, not
+// generated placeholders — this script does not touch them. See
+// components/icons/BrandMark.tsx for the source shape.
 
 console.log('\nPlaceholder media generated. Replace files in public/media/** with real photography whenever ready.');

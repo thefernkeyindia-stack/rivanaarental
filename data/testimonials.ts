@@ -7,7 +7,7 @@ export const testimonials: Testimonial[] = [
     location: 'London, UK',
     rating: 5,
     quote:
-      'Every detail felt considered. We arrived to fresh flowers and champagne, and never wanted to leave the infinity pool. Rivanaa is the definition of quiet luxury.',
+      'Every detail felt considered. We arrived to fresh flowers and coconut water, and never wanted to leave the pool deck. The Fern Key is the definition of quiet luxury.',
     avatar: '/media/gallery/avatar-1.svg',
     source: 'Airbnb',
   },

@@ -1,5 +1,5 @@
 /**
- * Central, editable configuration for the Rivanaa Rental site.
+ * Central, editable configuration for The Fern Key site.
  *
  * The owner can update contact details, links and copy here without touching
  * any component code. Values fall back to `NEXT_PUBLIC_*` env vars where it
@@ -7,49 +7,48 @@
  */
 
 export const siteConfig = {
-  name: 'Rivanaa Rental',
-  legalName: 'Rivanaa Rental Villa',
-  monogram: 'R',
-  tagline: 'A Private Sanctuary of Modern Luxury',
+  name: 'The Fern Key',
+  legalName: 'The Fern Key Rental Stays',
+  tagline: 'A Private Sanctuary on the Goa Coast',
   description:
-    'Rivanaa Rental is a private luxury villa offering cinematic ocean views, an infinity pool, and quietly indulgent design — an intimate escape for discerning travelers.',
+    'The Fern Key is a private luxury villa in Goa offering cinematic sea-facing views, a pool, and quietly indulgent design — an intimate escape for discerning travelers.',
   // Use `||` (not `??`) for every fallback below: Vercel/CI can inject an
   // env var as an empty string rather than leaving it unset, and `??` only
   // falls back on null/undefined — an empty NEXT_PUBLIC_SITE_URL previously
   // reached `new URL('')` in app/layout.tsx and crashed the production build.
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rivanaarental.com',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.thefernkey.com',
 
   // --- Contact & booking channels -----------------------------------------
   airbnbListingUrl:
     process.env.NEXT_PUBLIC_AIRBNB_LISTING_URL || 'https://www.airbnb.com/rooms/00000000',
-  whatsappPhone: process.env.NEXT_PUBLIC_WHATSAPP_PHONE || '15550123456',
-  whatsappMessage: "Hi, I'm interested in Rivanaa Rental",
-  contactPhoneDisplay: '+1 (555) 012-3456',
-  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'stay@rivanaarental.com',
+  whatsappPhone: process.env.NEXT_PUBLIC_WHATSAPP_PHONE || '919820123456',
+  whatsappMessage: "Hi, I'm interested in The Fern Key",
+  contactPhoneDisplay: '+91 98201 23456',
+  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'stay@thefernkey.com',
   address: {
-    line1: '27 Cliffside Cove',
-    line2: 'Harbour Point',
-    city: 'Nassau',
-    country: 'The Bahamas',
+    line1: 'Fern Key Villa',
+    line2: 'Anjuna',
+    city: 'North Goa',
+    country: 'India',
   },
   mapEmbedSrc:
     process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED_SRC ||
-    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114825.7!2d-77.39!3d25.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDAzJzAwLjAiTiA3N8KwMjMnMjQuMCJX!5e0!3m2!1sen!2sus!4v1700000000000',
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3843.0!2d73.740!3d15.5735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDM0JzI0LjYiTiA3M8KwNDQnMjQuMCJF!5e0!3m2!1sen!2sin!4v1700000000000',
 
   // --- Social -------------------------------------------------------------
   social: {
-    instagram: 'https://instagram.com/rivanaarental',
-    facebook: 'https://facebook.com/rivanaarental',
+    instagram: 'https://instagram.com/thefernkey',
+    facebook: 'https://facebook.com/thefernkey',
     airbnb: 'https://www.airbnb.com/rooms/00000000',
   },
 
   // --- Property facts -------------------------------------------------------
   facts: {
-    guests: 10,
-    bedrooms: 5,
-    bathrooms: 5.5,
-    sqft: 6200,
-    checkIn: '3:00 PM',
+    guests: 8,
+    bedrooms: 4,
+    bathrooms: 4.5,
+    sqft: 3800,
+    checkIn: '2:00 PM',
     checkOut: '11:00 AM',
   },
 

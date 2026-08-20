@@ -1,4 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#141312"/>
-  <text x="32" y="42" fill="#b78a4a" font-family="Georgia, serif" font-size="34" text-anchor="middle">R</text>
+  <rect width="64" height="64" rx="14" fill="#123522"/>
+  <g transform="translate(-2,3) scale(0.44)" fill="none" stroke="#c29a54" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M90 34 C90 34 78 26 66 29" />
+    <path d="M90 34 C90 34 80 20 68 18" />
+    <path d="M90 34 C90 34 90 18 82 8" />
+    <path d="M90 34 C90 34 100 20 112 18" />
+    <path d="M90 34 C90 34 102 27 114 30" />
+    <path d="M90 34 C86 46 84 58 88 74" />
+    <path d="M40 46 L58 24 L76 46" />
+    <path d="M43 46 L43 72 L73 72 L73 46" />
+    <path d="M16 52 L16 72 L43 72" />
+    <path d="M16 52 L43 52" />
+    <path d="M53 72 V60 A5 5 0 0 1 63 60 V72" />
+    <path d="M6 84 Q14 79 22 84 T38 84 T54 84 T70 84 T86 84 T102 84 T114 84" />
+  </g>
 </svg>

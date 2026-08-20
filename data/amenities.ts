@@ -6,7 +6,7 @@ import type { AmenityItem } from '@/types';
  * https://lucide.dev/icons and adding its PascalCase name here.
  */
 export const amenities: AmenityItem[] = [
-  { id: 'pool', label: 'Private Infinity Pool', icon: 'Waves' },
+  { id: 'pool', label: 'Private Pool', icon: 'Waves' },
   { id: 'wifi', label: 'High-Speed WiFi', icon: 'Wifi' },
   { id: 'ac', label: 'Climate Control', icon: 'Snowflake' },
   { id: 'chef', label: 'Private Chef Service', icon: 'ChefHat' },

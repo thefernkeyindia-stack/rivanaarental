@@ -1,21 +1,33 @@
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
+import BrandMark from './icons/BrandMark';
 
-export default function Logo({ light = false, className }: { light?: boolean; className?: string }) {
+interface LogoProps {
+  light?: boolean;
+  /** Icon above a centered wordmark + "RENTAL STAYS" line — for the footer and loading screen. */
+  stacked?: boolean;
+  className?: string;
+}
+
+export default function Logo({ light = false, stacked = false, className }: LogoProps) {
+  const iconColor = light ? 'text-gold-300' : 'text-gold-600';
+  const wordColor = light ? 'text-ivory-100' : 'text-charcoal-900';
+  const subColor = light ? 'text-ivory-100/60' : 'text-charcoal-600';
+
+  if (stacked) {
+    return (
+      <span className={cn('inline-flex flex-col items-center gap-2', className)}>
+        <BrandMark className={cn('h-14 w-auto', iconColor)} />
+        <span className={cn('font-script text-3xl leading-none', wordColor)}>{siteConfig.name}</span>
+        <span className={cn('text-[11px] font-medium uppercase tracking-widest2', subColor)}>Rental Stays</span>
+      </span>
+    );
+  }
+
   return (
-    <span className={cn('inline-flex items-center gap-2.5 font-serif', className)}>
-      <span
-        className={cn(
-          'flex h-9 w-9 items-center justify-center rounded-full border text-base',
-          light ? 'border-ivory-100/50 text-ivory-100' : 'border-charcoal-950/30 text-charcoal-950',
-        )}
-        aria-hidden
-      >
-        {siteConfig.monogram}
-      </span>
-      <span className={cn('text-lg tracking-wide', light ? 'text-ivory-100' : 'text-charcoal-950')}>
-        {siteConfig.name}
-      </span>
+    <span className={cn('inline-flex items-center gap-2.5', className)}>
+      <BrandMark className={cn('h-9 w-auto shrink-0', iconColor)} />
+      <span className={cn('font-script text-2xl leading-none', wordColor)}>{siteConfig.name}</span>
     </span>
   );
 }

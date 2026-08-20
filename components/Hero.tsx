@@ -7,9 +7,9 @@ import { ChevronDown } from 'lucide-react';
 import { siteConfig } from '@/config/site';
 
 const slides = [
-  { src: '/media/gallery/hero-1.svg', alt: 'Rivanaa Rental villa exterior at dusk' },
-  { src: '/media/gallery/hero-2.svg', alt: 'Infinity pool overlooking the coastline' },
-  { src: '/media/gallery/hero-3.svg', alt: 'Ocean-view terrace at sunset' },
+  { src: '/media/gallery/hero-1.svg', alt: 'The Fern Key villa exterior in Goa' },
+  { src: '/media/gallery/hero-2.svg', alt: 'Villa pool deck framed by palms' },
+  { src: '/media/gallery/hero-3.svg', alt: 'Sea-facing terrace at sunset' },
 ];
 
 export default function Hero() {

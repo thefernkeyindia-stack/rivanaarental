@@ -69,12 +69,12 @@
 }
 .rdp-day_selected,
 .rdp-day_selected:hover {
-  background-color: #141312 !important;
-  color: #f7f3ec !important;
+  background-color: #123522 !important;
+  color: #faf4e7 !important;
 }
 .rdp-day_booked {
-  background-color: #efe7d8;
-  color: #a39c95;
+  background-color: #f2e2c4;
+  color: rgba(18, 53, 34, 0.35);
   text-decoration: line-through;
   cursor: not-allowed;
 }

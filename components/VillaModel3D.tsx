@@ -70,8 +70,8 @@ export default function VillaModel3D() {
           <p className="eyebrow text-gold-400">Explore in 3D</p>
           <h2 className="section-heading mt-3 text-ivory-100">Step Inside, Virtually</h2>
           <p className="mt-4 text-ivory-100/70">
-            Drag to rotate, scroll to zoom, and tap the glowing markers to explore the master suite, infinity
-            pool, garden lounge and kitchen.
+            Drag to rotate, scroll to zoom, and tap the glowing markers to explore the master suite, pool
+            deck, garden lounge and kitchen.
           </p>
         </ScrollReveal>
 
@@ -87,15 +87,15 @@ export default function VillaModel3D() {
                 <Canvas
                   shadows
                   dpr={[1, 1.75]}
-                  camera={{ position: [4.2, 2.4, 5.2], fov: 42 }}
+                  camera={{ position: [5.4, 3.2, 6.4], fov: 42 }}
                   onCreated={() => setReady(true)}
                   className="!touch-none"
                 >
-                  <color attach="background" args={['#141312']} />
-                  <fog attach="fog" args={['#141312', 8, 16]} />
+                  <color attach="background" args={['#123522']} />
+                  <fog attach="fog" args={['#123522', 9, 18]} />
                   <ambientLight intensity={0.5} />
                   <directionalLight position={[5, 6, 3]} intensity={1.4} castShadow shadow-mapSize={[1024, 1024]} />
-                  <hemisphereLight args={['#f7f3ec', '#221f1c', 0.5]} />
+                  <hemisphereLight args={['#faf4e7', '#123522', 0.5]} />
 
                   <ErrorBoundary fallback={<ProceduralVilla />} onError={() => setModelFailed(true)}>
                     <GLTFModel />
@@ -110,8 +110,9 @@ export default function VillaModel3D() {
                     autoRotate
                     autoRotateSpeed={0.6}
                     enablePan={false}
-                    minDistance={3}
-                    maxDistance={9}
+                    target={[0, 0.6, 0]}
+                    minDistance={4}
+                    maxDistance={11}
                     minPolarAngle={Math.PI / 6}
                     maxPolarAngle={Math.PI / 2.05}
                   />

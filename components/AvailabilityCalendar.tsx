@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { DayPicker, type DateRange } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import { Minus, Plus, Users } from 'lucide-react';
@@ -19,20 +20,34 @@ export default function AvailabilityCalendar({ range, onRangeChange, guests, onG
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
+  // A 2-month calendar is ~592px wide and only fits inside the booking
+  // card from the `md` breakpoint up — below that it overflowed the white
+  // card on narrow screens, so fall back to a single month there.
+  const [numberOfMonths, setNumberOfMonths] = useState(1);
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 768px)');
+    const update = () => setNumberOfMonths(mq.matches ? 2 : 1);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
+
   return (
     <div>
-      <DayPicker
-        mode="range"
-        numberOfMonths={2}
-        pagedNavigation
-        selected={range}
-        onSelect={onRangeChange}
-        min={minimumStayNights}
-        disabled={[{ before: today }, ...bookedRanges]}
-        modifiers={{ booked: bookedRanges }}
-        modifiersClassNames={{ booked: 'rdp-day_booked' }}
-        className="!mx-auto w-fit"
-      />
+      <div className="overflow-x-auto">
+        <DayPicker
+          mode="range"
+          numberOfMonths={numberOfMonths}
+          pagedNavigation
+          selected={range}
+          onSelect={onRangeChange}
+          min={minimumStayNights}
+          disabled={[{ before: today }, ...bookedRanges]}
+          modifiers={{ booked: bookedRanges }}
+          modifiersClassNames={{ booked: 'rdp-day_booked' }}
+          className="!mx-auto w-fit"
+        />
+      </div>
 
       <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-charcoal-600">
         <span className="inline-flex items-center gap-1.5">

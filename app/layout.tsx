@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Fraunces, Inter } from 'next/font/google';
+import { Fraunces, Inter, Playball } from 'next/font/google';
 import './globals.css';
 import { siteConfig } from '@/config/site';
 import Navbar from '@/components/Navbar';
@@ -20,6 +20,15 @@ const inter = Inter({
   variable: '--font-inter',
   display: 'swap',
   weight: ['300', '400', '500', '600'],
+});
+
+// Brush-script face for the "The Fern Key" wordmark, echoing the flowing
+// hand-lettered logotype.
+const playball = Playball({
+  subsets: ['latin'],
+  variable: '--font-script',
+  display: 'swap',
+  weight: '400',
 });
 
 export const metadata: Metadata = {
@@ -55,14 +64,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#141312',
+  themeColor: '#123522',
   width: 'device-width',
   initialScale: 1,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${inter.variable} ${playball.variable}`}>
       <body className="font-sans">
         <LoadingScreen />
         <a

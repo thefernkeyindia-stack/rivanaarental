@@ -20,27 +20,30 @@ const config: Config = {
     },
     extend: {
       colors: {
+        // "charcoal" is the dark-neutral token used for dark sections/text —
+        // a deep palm green (not black) to match the Goa beach-villa brand.
         charcoal: {
-          DEFAULT: '#141312',
-          50: '#f5f4f3',
-          100: '#e5e3e1',
-          200: '#c9c5c1',
-          300: '#a39c95',
-          400: '#7a7169',
-          500: '#5a534c',
-          600: '#453f3a',
-          700: '#332e2a',
-          800: '#221f1c',
-          900: '#141312',
-          950: '#0b0a09',
+          DEFAULT: '#123522',
+          50: '#f4faf5',
+          100: '#e2f3e6',
+          200: '#c2e4cd',
+          300: '#8ecaa0',
+          400: '#5cab77',
+          500: '#3a8c5a',
+          600: '#2a7247',
+          700: '#1f5c38',
+          800: '#184a2d',
+          900: '#123522',
+          950: '#0d1f16',
         },
+        // Warm sand/ivory base.
         ivory: {
-          DEFAULT: '#f7f3ec',
-          50: '#fffdfa',
-          100: '#f7f3ec',
-          200: '#efe7d8',
-          300: '#e3d5bd',
-          400: '#d3bd99',
+          DEFAULT: '#faf4e7',
+          50: '#fffdf8',
+          100: '#faf4e7',
+          200: '#f2e2c4',
+          300: '#e6c894',
+          400: '#d7a962',
         },
         gold: {
           DEFAULT: '#b78a4a',
@@ -62,10 +65,26 @@ const config: Config = {
           500: '#6b6b4d',
           700: '#484834',
         },
+        // Ocean teal accent — used sparingly for beachy touches (pool icon,
+        // wave divider) alongside the green/gold/sand core palette.
+        ocean: {
+          DEFAULT: '#2f7f8c',
+          50: '#eff8f9',
+          100: '#d6eef1',
+          200: '#ade0e6',
+          300: '#7cc9d3',
+          400: '#4fb0bd',
+          500: '#2f7f8c',
+          600: '#256672',
+          700: '#1e525c',
+          800: '#1a434b',
+          900: '#17393f',
+        },
       },
       fontFamily: {
         serif: ['var(--font-fraunces)', 'Georgia', 'serif'],
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        script: ['var(--font-script)', 'cursive'],
       },
       letterSpacing: {
         widest2: '0.25em',
@@ -74,8 +93,8 @@ const config: Config = {
         '8xl': '90rem',
       },
       boxShadow: {
-        soft: '0 20px 60px -20px rgba(20, 19, 18, 0.35)',
-        card: '0 10px 40px -12px rgba(20, 19, 18, 0.25)',
+        soft: '0 20px 60px -20px rgba(13, 31, 22, 0.35)',
+        card: '0 10px 40px -12px rgba(13, 31, 22, 0.25)',
       },
       keyframes: {
         fadeIn: {
