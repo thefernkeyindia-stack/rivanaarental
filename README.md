@@ -1,6 +1,6 @@
 # The Fern Key
 
-A premium, single-property luxury villa rental website for a Goa villa, built with Next.js 14 (App Router), TypeScript, Tailwind CSS, Framer Motion, and an interactive react-three-fiber 3D villa model.
+A premium, single-property luxury villa rental website for a Goa villa, built with Next.js 14 (App Router), TypeScript, Tailwind CSS, and Framer Motion.
 
 ## Getting started
 
@@ -22,16 +22,14 @@ npm run lint    # ESLint
 ```
 app/                    Next.js App Router pages, layout, metadata, sitemap/robots
 components/              All UI sections and shared components
-  villa3d/               Pieces of the interactive 3D villa viewer
-  icons/                 Small hand-drawn brand glyphs (WhatsApp, Airbnb)
+  icons/                 Small hand-drawn brand glyphs (WhatsApp, Airbnb, logo mark)
 config/site.ts           Single source of truth for editable site details
 data/                    Mock content: gallery, testimonials, FAQ, amenities,
-                          nearby attractions, availability, 3D hotspots
+                          nearby attractions, availability
 lib/                     Small helpers (cn, availability, wa.me link builder)
 public/media/
   gallery/                Generated placeholder images (SVG)
   videos/                 Drop real video files here
-  models/                 Drop a real .glb villa model here
 scripts/generate-placeholders.mjs   Regenerates the placeholder art
 ```
 
@@ -87,36 +85,15 @@ swap a given image for a real JPG/PNG/WebP, remove that image's
 caching. Once every image on the site is a real raster photo, you can also
 remove the `dangerouslyAllowSVG` block from `next.config.mjs`.
 
-## Adding a real 3D model
+## Signature Spaces section
 
-The "Explore in 3D" section (`components/VillaModel3D.tsx`) works out of the
-box with **zero external assets** — it renders a stylized procedural villa
-(`components/villa3d/ProceduralVilla.tsx`) built from primitives, loosely
-massed to match the real villa's tall glass-fronted volume, gabled roof,
-balconies, and ground-level pool. It's a rough massing study, not a replica —
-swap in a real scan/model for an accurate walkthrough.
-
-To use a real 3D scan or model instead:
-
-1. Export a web-optimized `.glb` (Draco or meshopt compression recommended,
-   ideally a few MB or less).
-2. Place it at `public/media/models/villa.glb` — that exact path is already
-   wired up in `components/villa3d/GLTFModel.tsx` via drei's `useGLTF`.
-3. The component automatically detects the real file and uses it; if it's
-   missing or fails to load, it falls back to the procedural scene
-   (`ErrorBoundary` in `VillaModel3D.tsx` handles this — no manual toggle
-   needed).
-4. Re-plot the hotspot marker positions in `data/hotspots.ts` (`position: [x,
-   y, z]`) to match your model's scale/origin — temporarily add axis helpers
-   in the scene if it helps, then remove them.
-5. Adjust camera start position / `OrbitControls` min/max distance in
-   `VillaModel3D.tsx` if your model's scale differs significantly.
-
-Devices without WebGL (or flagged as low-power via a simple heuristic) get a
-static, swipeable "360° photo" fallback instead of the live canvas — see
-`components/villa3d/Static360Carousel.tsx`. Replace the 8 frames in
-`public/media/gallery/villa-360-*.svg` with real rendered/photographed
-360 frames when available.
+`components/SignatureSpaces.tsx` (between the hero and the About section) is
+a lightweight, dependency-free showcase: a looping marquee of the villa's
+attributes followed by a staggered grid of image cards with a scroll-in Ken
+Burns zoom and a hover lift. Edit the `spaces` array in that file to change
+which rooms/views are featured, and the `words` array for the marquee copy.
+Swap each card's `image` path for real photography the same way as the
+gallery (see below).
 
 ## Availability & booking
 
@@ -136,8 +113,7 @@ service) — the idle/submitting/success/error UI states already support it.
 
 - Next.js 14 (App Router) + TypeScript
 - Tailwind CSS (custom palm-green / sand / gold beach-villa design system)
-- Framer Motion (scroll reveals, page/menu transitions)
-- react-three-fiber + drei (interactive 3D villa viewer)
+- Framer Motion (scroll reveals, marquee/parallax motion, page/menu transitions)
 - react-day-picker (availability calendar)
 - react-hook-form + zod (booking enquiry form)
 - yet-another-react-lightbox (+ video plugin) for the gallery

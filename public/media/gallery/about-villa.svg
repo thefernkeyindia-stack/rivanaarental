@@ -14,7 +14,7 @@
   <line x1="0" y1="214.28571428571428" x2="1200" y2="214.28571428571428" stroke="#b78a4a" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="428.57142857142856" x2="1200" y2="428.57142857142856" stroke="#b78a4a" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="642.8571428571429" x2="1200" y2="642.8571428571429" stroke="#b78a4a" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="857.1428571428571" x2="1200" y2="857.1428571428571" stroke="#b78a4a" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="1071.4285714285713" x2="1200" y2="1071.4285714285713" stroke="#b78a4a" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="1285.7142857142858" x2="1200" y2="1285.7142857142858" stroke="#b78a4a" stroke-opacity="0.05" stroke-width="1"/>
   <rect x="0" y="0" width="1200" height="1500" fill="none" stroke="#b78a4a" stroke-opacity="0.35" stroke-width="1"/>
   <g opacity="0.9" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">
-    <text x="600" y="750" fill="#faf4e7" font-size="66" letter-spacing="2">Living Pavilion</text>
+    <text x="600" y="750" fill="#faf4e7" font-size="66" letter-spacing="2">The Living Room</text>
     <text x="600" y="809.4" fill="#b78a4a" font-family="Helvetica, Arial, sans-serif" font-size="21.12" letter-spacing="6">THE FERN KEY</text>
   </g>
   <g opacity="0.75">

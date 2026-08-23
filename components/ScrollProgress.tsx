@@ -1,0 +1,17 @@
+'use client';
+
+import { motion, useScroll, useSpring } from 'framer-motion';
+
+/** A thin gold progress line under the nav, tracking scroll position. */
+export default function ScrollProgress() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 30, restDelta: 0.001 });
+
+  return (
+    <motion.div
+      style={{ scaleX }}
+      className="fixed inset-x-0 top-0 z-[60] h-[2px] origin-left bg-gold-500 motion-reduce:hidden"
+      aria-hidden
+    />
+  );
+}

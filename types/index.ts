@@ -56,11 +56,3 @@ export interface BookedRange {
   to: string;
   label?: string;
 }
-
-export interface Hotspot {
-  id: string;
-  label: string;
-  description: string;
-  image: string;
-  position: [number, number, number];
-}

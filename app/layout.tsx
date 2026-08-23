@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsapp from '@/components/FloatingWhatsapp';
 import LoadingScreen from '@/components/LoadingScreen';
+import ScrollProgress from '@/components/ScrollProgress';
 
 const fraunces = Fraunces({
   subsets: ['latin'],
@@ -74,6 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${fraunces.variable} ${inter.variable} ${playball.variable}`}>
       <body className="font-sans">
         <LoadingScreen />
+        <ScrollProgress />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:m-4 focus:rounded-full focus:bg-charcoal-950 focus:px-5 focus:py-3 focus:text-ivory-100"

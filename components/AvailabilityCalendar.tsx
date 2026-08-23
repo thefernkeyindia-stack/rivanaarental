@@ -5,7 +5,7 @@ import { DayPicker, type DateRange } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import { Minus, Plus, Users } from 'lucide-react';
 import { getBookedDateRanges } from '@/lib/availability';
-import { minimumStayNights } from '@/data/availability';
+import { minimumStayNights, maxBookingGuests } from '@/data/availability';
 import { siteConfig } from '@/config/site';
 
 interface Props {
@@ -78,7 +78,7 @@ export default function AvailabilityCalendar({ range, onRangeChange, guests, onG
           <button
             type="button"
             aria-label="Increase guests"
-            onClick={() => onGuestsChange(Math.min(siteConfig.facts.guests, guests + 1))}
+            onClick={() => onGuestsChange(Math.min(maxBookingGuests, guests + 1))}
             className="flex h-7 w-7 items-center justify-center rounded-full border border-charcoal-900/20 text-charcoal-700 hover:border-gold-500 hover:text-gold-700"
           >
             <Plus className="h-3.5 w-3.5" />
@@ -86,8 +86,9 @@ export default function AvailabilityCalendar({ range, onRangeChange, guests, onG
         </div>
       </div>
 
-      <p className="mx-auto mt-6 max-w-sm text-center text-xs text-charcoal-500">
-        Minimum stay {minimumStayNights} nights. For instant booking, check live availability on{' '}
+      <p className="mx-auto mt-6 max-w-sm text-center text-xs text-charcoal-900/55">
+        From a single night to a full season — every date shown here is bookable. For instant booking, check live
+        availability on{' '}
         <a href={siteConfig.airbnbListingUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-gold-700">
           Airbnb
         </a>

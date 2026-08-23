@@ -126,9 +126,11 @@ function write(path, content) {
 ].forEach(({ id, ...rest }) => write(join(PUBLIC, 'gallery', `${id}.svg`), sceneSvg({ width: 1920, height: 1080, id, ...rest })));
 
 // --- About section -----------------------------------------------------------
+// Swap this for the real living-room photo — see README "Replacing
+// placeholder photos" for the exact steps.
 write(
   join(PUBLIC, 'gallery', 'about-villa.svg'),
-  sceneSvg({ width: 1200, height: 1500, id: 'about', label: 'Living Pavilion', from: PALETTE.charcoal, to: '#182a1c' }),
+  sceneSvg({ width: 1200, height: 1500, id: 'about', label: 'The Living Room', from: PALETTE.charcoal, to: '#182a1c' }),
 );
 
 // --- Gallery grid ------------------------------------------------------------
@@ -161,40 +163,22 @@ write(
   sceneSvg({ width: 1600, height: 900, id: 'video-poster', label: 'Villa Video Tour', from: PALETTE.charcoalWarm, to: PALETTE.charcoalDeep }),
 );
 
-// --- 3D hotspot thumbnails -----------------------------------------------
-[
-  ['hotspot-master-suite', 'Master Suite'],
-  ['hotspot-pool', 'Pool Deck'],
-  ['hotspot-garden-lounge', 'Garden Lounge'],
-  ['hotspot-kitchen', 'Chef Kitchen'],
-].forEach(([id, label]) =>
-  write(join(PUBLIC, 'gallery', `${id}.svg`), sceneSvg({ width: 640, height: 480, id, label, from: PALETTE.charcoal, to: PALETTE.charcoalWarm })),
-);
-
-// --- 360 fallback frames for low-power devices -----------------------------
-for (let i = 1; i <= 8; i += 1) {
-  write(
-    join(PUBLIC, 'gallery', `villa-360-${i}.svg`),
-    sceneSvg({ width: 1600, height: 1000, id: `360-${i}`, label: `360° View ${i} / 8`, from: PALETTE.charcoal, to: PALETTE.charcoalWarm }),
-  );
-}
-
 // --- Testimonial avatars ------------------------------------------------------
 [
-  ['avatar-1', 'JM'],
-  ['avatar-2', 'AS'],
-  ['avatar-3', 'CL'],
-  ['avatar-4', 'RK'],
-  ['avatar-5', 'ET'],
-  ['avatar-6', 'NB'],
+  ['avatar-1', 'AM'],
+  ['avatar-2', 'IB'],
+  ['avatar-3', 'KO'],
+  ['avatar-4', 'MK'],
+  ['avatar-5', 'RC'],
+  ['avatar-6', 'NS'],
 ].forEach(([id, initials]) => write(join(PUBLIC, 'gallery', `${id}.svg`), avatarSvg({ id, initials })));
 
 // --- Attractions --------------------------------------------------------------
 [
-  ['attraction-beach', 'Private Beach Cove'],
-  ['attraction-restaurant', 'Seaside Fine Dining'],
-  ['attraction-marina', 'Harbour Marina'],
-  ['attraction-town', 'Historic Old Town'],
+  ['attraction-beach', 'Anjuna Beach'],
+  ['attraction-restaurant', 'Thalassa'],
+  ['attraction-marina', 'Chapora Fort'],
+  ['attraction-town', 'Assagao Village'],
 ].forEach(([id, label]) =>
   write(join(PUBLIC, 'gallery', `${id}.svg`), sceneSvg({ width: 800, height: 600, id, label, from: PALETTE.charcoal, to: PALETTE.charcoalWarm })),
 );

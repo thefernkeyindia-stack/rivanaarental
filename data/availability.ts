@@ -16,4 +16,11 @@ export const bookedRanges: BookedRange[] = [
   { from: '2026-12-20', to: '2027-01-03', label: 'Holiday season — booked' },
 ];
 
-export const minimumStayNights = 3;
+// No enforced minimum — single-night stays are bookable.
+export const minimumStayNights = 1;
+
+// Upper bound for the booking enquiry form's guest stepper. Independent of
+// siteConfig.facts.guests (the villa's stated sleeping capacity shown in
+// the About section) — this just caps how high the "+" button counts, for
+// enquiries about larger gatherings.
+export const maxBookingGuests = 20;

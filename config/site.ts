@@ -20,26 +20,30 @@ export const siteConfig = {
 
   // --- Contact & booking channels -----------------------------------------
   airbnbListingUrl:
-    process.env.NEXT_PUBLIC_AIRBNB_LISTING_URL || 'https://www.airbnb.com/rooms/00000000',
-  whatsappPhone: process.env.NEXT_PUBLIC_WHATSAPP_PHONE || '919820123456',
+    process.env.NEXT_PUBLIC_AIRBNB_LISTING_URL ||
+    'https://www.airbnb.co.in/rooms/1749125444674594460?guests=1&adults=1&s=67&unique_share_id=674af636-93ce-4bef-9163-393de6c4d0f7',
+  whatsappPhone: process.env.NEXT_PUBLIC_WHATSAPP_PHONE || '919820956888',
   whatsappMessage: "Hi, I'm interested in The Fern Key",
-  contactPhoneDisplay: '+91 98201 23456',
-  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'stay@thefernkey.com',
+  contactPhoneDisplay: '+91 98209 56888',
+  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'thefernkeyindia@gmail.com',
   address: {
-    line1: 'Fern Key Villa',
-    line2: 'Anjuna',
+    line1: 'Ava Villa',
+    line2: 'Sangolda',
     city: 'North Goa',
     country: 'India',
   },
+  // No-API-key embeddable Google Maps URL, built from the villa's actual
+  // coordinates (Sangolda, Porvorim, North Goa 403501).
   mapEmbedSrc:
     process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED_SRC ||
-    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3843.0!2d73.740!3d15.5735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDM0JzI0LjYiTiA3M8KwNDQnMjQuMCJF!5e0!3m2!1sen!2sin!4v1700000000000',
+    'https://www.google.com/maps?q=15.5432353,73.8176067&z=16&output=embed',
 
   // --- Social -------------------------------------------------------------
   social: {
     instagram: 'https://instagram.com/thefernkey',
     facebook: 'https://facebook.com/thefernkey',
-    airbnb: 'https://www.airbnb.com/rooms/00000000',
+    airbnb:
+      'https://www.airbnb.co.in/rooms/1749125444674594460?guests=1&adults=1&s=67&unique_share_id=674af636-93ce-4bef-9163-393de6c4d0f7',
   },
 
   // --- Property facts -------------------------------------------------------
