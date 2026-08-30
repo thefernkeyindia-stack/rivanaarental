@@ -15,7 +15,10 @@ export default function Gallery() {
   const [index, setIndex] = useState(-1);
 
   const filtered = useMemo(
-    () => (category === 'All' ? galleryItems : galleryItems.filter((item) => item.category === category)),
+    () =>
+      category === 'All'
+        ? galleryItems.filter((item) => item.featured)
+        : galleryItems.filter((item) => item.category === category),
     [category],
   );
 
@@ -79,7 +82,10 @@ export default function Gallery() {
                   sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                   className="object-cover transition-transform duration-700 ease-luxe group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-charcoal-950/0 transition-colors duration-300 group-hover:bg-charcoal-950/20" />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/70 via-charcoal-950/0 to-charcoal-950/0 transition-colors duration-300 group-hover:from-charcoal-950/80" />
+                <span className="absolute bottom-3 left-3 rounded-full bg-charcoal-950/70 px-3 py-1 text-xs font-medium tracking-wide text-ivory-100 backdrop-blur-sm">
+                  {item.label}
+                </span>
                 {item.type === 'video' && (
                   <div className="absolute inset-0 flex items-center justify-center">
                     <span className="flex h-14 w-14 items-center justify-center rounded-full bg-ivory-100/90 text-charcoal-950 shadow-soft transition-transform duration-300 group-hover:scale-110">

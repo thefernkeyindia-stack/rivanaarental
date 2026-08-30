@@ -16,6 +16,10 @@ export interface GalleryItem {
   height: number;
   alt: string;
   caption?: string;
+  /** Short badge shown on the tile, e.g. "Bedroom 2" or "Pool". */
+  label: string;
+  /** Shown as the single representative tile for its category on the "All" filter. */
+  featured?: boolean;
 }
 
 export interface Testimonial {
