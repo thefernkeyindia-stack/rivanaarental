@@ -8,9 +8,6 @@ import {
   PawPrint,
   ShieldCheck,
   Tv,
-  Droplets,
-  Trees,
-  Umbrella,
   type LucideIcon,
 } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
@@ -26,9 +23,6 @@ const ICONS: Record<string, LucideIcon> = {
   PawPrint,
   ShieldCheck,
   Tv,
-  Droplets,
-  Trees,
-  Umbrella,
 };
 
 export default function Amenities() {
@@ -40,7 +34,7 @@ export default function Amenities() {
           <h2 className="section-heading mt-3 text-ivory-100">Everything, Effortlessly</h2>
         </ScrollReveal>
 
-        <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+        <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3">
           {amenities.map((amenity, i) => {
             const Icon = ICONS[amenity.icon] ?? Sparkles;
             return (

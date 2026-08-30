@@ -15,7 +15,4 @@ export const amenities: AmenityItem[] = [
   { id: 'pet', label: 'Pet Friendly', icon: 'PawPrint' },
   { id: 'security', label: '24/7 Security', icon: 'ShieldCheck' },
   { id: 'tv', label: 'Smart TV & Sound', icon: 'Tv' },
-  { id: 'jacuzzi', label: 'Outdoor Jacuzzi', icon: 'Droplets' },
-  { id: 'garden', label: 'Private Garden', icon: 'Trees' },
-  { id: 'beach', label: 'Beach Access', icon: 'Umbrella' },
 ];

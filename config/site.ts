@@ -7,11 +7,15 @@
  */
 
 export const siteConfig = {
+  // The Fern Key is the rental-stays company/brand; the villa itself is a
+  // separate property (currently just one — Ava Villa). Keep these two
+  // distinct in copy: the company offers stays, the villa is the property.
   name: 'The Fern Key',
   legalName: 'The Fern Key Rental Stays',
+  villaName: 'Ava Villa',
   tagline: 'A Private Sanctuary on the Goa Coast',
   description:
-    'The Fern Key is a private luxury villa in Goa offering cinematic sea-facing views, a pool, and quietly indulgent design — an intimate escape for discerning travelers.',
+    'The Fern Key offers curated luxury rental stays in Goa. Our property, Ava Villa, is a six-bedroom architectural villa with cinematic sea-facing views, a pool, and quietly indulgent design — an intimate escape for discerning travelers.',
   // Use `||` (not `??`) for every fallback below: Vercel/CI can inject an
   // env var as an empty string rather than leaving it unset, and `??` only
   // falls back on null/undefined — an empty NEXT_PUBLIC_SITE_URL previously
@@ -48,9 +52,9 @@ export const siteConfig = {
 
   // --- Property facts -------------------------------------------------------
   facts: {
-    guests: 8,
-    bedrooms: 4,
-    bathrooms: 4.5,
+    guests: '12+',
+    bedrooms: 6,
+    bathrooms: 6,
     sqft: 3800,
     checkIn: '2:00 PM',
     checkOut: '11:00 AM',

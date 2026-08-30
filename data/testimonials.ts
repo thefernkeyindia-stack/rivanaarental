@@ -47,7 +47,7 @@ export const testimonials: Testimonial[] = [
     location: 'Pune',
     rating: 5,
     quote:
-      'Eight of us stayed across the four bedrooms with room to spare, and the pool deck below the living room made it easy to be together without being on top of each other. Genuinely one of the best villas we have rented in Goa.',
+      'Ten of us stayed across the six bedrooms with room to spare, and the pool deck below the living room made it easy to be together without being on top of each other. Genuinely one of the best villas we have rented in Goa.',
     avatar: '/media/gallery/avatar-5.svg',
     source: 'Google',
   },

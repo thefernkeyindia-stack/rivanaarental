@@ -61,7 +61,7 @@ export default function Hero() {
           transition={{ delay: 0.3, duration: 0.7 }}
           className="eyebrow text-gold-300"
         >
-          Private Luxury Villa
+          Luxury Rental Stays
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 24 }}

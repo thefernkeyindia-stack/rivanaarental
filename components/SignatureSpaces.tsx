@@ -7,7 +7,7 @@ import ScrollReveal from './ScrollReveal';
 const words = [
   'Private Pool',
   'Glass-Fronted Living',
-  'Four Bedrooms',
+  '6 Bedrooms',
   'Sangolda, North Goa',
   'Terracotta Stone Accents',
   'Sunset Balcony',
