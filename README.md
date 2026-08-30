@@ -76,6 +76,13 @@ regenerate them if you tweak the script). To swap in real photography:
 3. For the video tour: add an MP4 at `public/media/videos/villa-tour.mp4`
    (the path already referenced in `data/gallery.ts`) and a poster image at
    `public/media/gallery/video-tour-poster.svg` (or update that path too).
+4. The hero banner plays a real looping background video —
+   `public/media/videos/hero-living-room.mp4`, wired up in
+   `components/Hero.tsx`. To swap it, replace that file (keep the same
+   filename, or update the `<source>` `src` in `Hero.tsx`). A 16:9 clip
+   around 5–15s, muted-friendly (no dialogue), H.264/AAC MP4 works best —
+   that's the one universally-supported combo across Chrome, Safari, and
+   Firefox for autoplay video.
 
 Every `<Image>` in this codebase currently has an `unoptimized` prop, since
 the placeholders are vector SVGs (no benefit from raster resizing, and
