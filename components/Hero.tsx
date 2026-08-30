@@ -28,11 +28,16 @@ export default function Hero() {
         </video>
       </motion.div>
 
-      <div className="absolute inset-0 bg-charcoal-950/45" />
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/55 to-charcoal-950/25" />
-      <div className="absolute inset-0 bg-gradient-to-r from-charcoal-950/60 via-transparent to-charcoal-950/40" />
+      {/* Light, bottom-anchored only — the video should read clearly, not
+          through a tinted wash. Text legibility comes from this gradient's
+          lower half plus the drop-shadow on the text itself, not a full-frame
+          overlay. */}
+      <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/80 via-charcoal-950/10 to-transparent" />
 
-      <motion.div style={{ opacity }} className="container-luxe relative z-10 pb-24 pt-40 sm:pb-28">
+      <motion.div
+        style={{ opacity }}
+        className="container-luxe relative z-10 pb-24 pt-40 [text-shadow:0_2px_16px_rgba(13,31,22,0.65)] sm:pb-28"
+      >
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
