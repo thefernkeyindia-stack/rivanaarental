@@ -31,8 +31,11 @@ export default function Hero() {
         </video>
       </motion.div>
 
-      {/* No overlay at all — the video shows completely unobstructed.
-          Legibility comes entirely from the text-shadow below. */}
+      {/* Confined to the bottom third, where the text sits, so the rest of
+          the video stays fully clear. Fades to nothing well before the
+          midpoint of the frame. */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-charcoal-950/75 via-charcoal-950/25 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-charcoal-950/40 to-transparent" />
 
       <motion.div
         style={{ opacity }}
