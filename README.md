@@ -92,16 +92,6 @@ swap a given image for a real JPG/PNG/WebP, remove that image's
 caching. Once every image on the site is a real raster photo, you can also
 remove the `dangerouslyAllowSVG` block from `next.config.mjs`.
 
-## Signature Spaces section
-
-`components/SignatureSpaces.tsx` (between the hero and the About section) is
-a lightweight, dependency-free showcase: a looping marquee of the villa's
-attributes followed by a staggered grid of image cards with a scroll-in Ken
-Burns zoom and a hover lift. Edit the `spaces` array in that file to change
-which rooms/views are featured, and the `words` array for the marquee copy.
-Swap each card's `image` path for real photography the same way as the
-gallery (see below).
-
 ## Availability & booking
 
 `data/availability.ts` holds a mock array of booked date ranges. It's

@@ -1,5 +1,4 @@
 import Hero from '@/components/Hero';
-import SignatureSpaces from '@/components/SignatureSpaces';
 import AboutVilla from '@/components/AboutVilla';
 import Gallery from '@/components/Gallery';
 import Amenities from '@/components/Amenities';
@@ -12,7 +11,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <SignatureSpaces />
       <AboutVilla />
       <Gallery />
       <Amenities />
