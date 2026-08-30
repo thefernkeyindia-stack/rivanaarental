@@ -28,11 +28,8 @@ export default function Hero() {
         </video>
       </motion.div>
 
-      {/* Light, bottom-anchored only — the video should read clearly, not
-          through a tinted wash. Text legibility comes from this gradient's
-          lower half plus the drop-shadow on the text itself, not a full-frame
-          overlay. */}
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/80 via-charcoal-950/10 to-transparent" />
+      {/* No overlay at all — the video shows completely unobstructed.
+          Legibility comes entirely from the text-shadow below. */}
 
       <motion.div
         style={{ opacity }}
