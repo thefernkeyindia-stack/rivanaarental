@@ -1,56 +1,61 @@
 import type { GalleryItem } from '@/types';
 
 /**
- * Gallery source of truth. Replace the `src` paths with real photography or
- * video once available — drop files into public/media/gallery (images) or
- * public/media/videos (video) and update the paths below. Aspect-correct
- * width/height keep the masonry grid and lightbox from jumping on load.
+ * Gallery source of truth — real photography of Ava Villa. Aspect-correct
+ * width/height (each image's actual pixel dimensions) keep the masonry grid
+ * and lightbox from jumping on load.
  */
 export const galleryItems: GalleryItem[] = [
-  { id: 'ext-1', category: 'Exterior', type: 'image', src: '/media/gallery/exterior-1.svg', width: 1200, height: 900, alt: 'Villa exterior facade at golden hour' },
-  { id: 'ext-2', category: 'Exterior', type: 'image', src: '/media/gallery/exterior-2.svg', width: 1200, height: 1500, alt: 'Villa entrance courtyard' },
-  { id: 'ext-3', category: 'Exterior', type: 'image', src: '/media/gallery/exterior-3.svg', width: 1200, height: 900, alt: 'Villa exterior night lighting' },
+  { id: 'living-1', category: 'Living', type: 'image', src: '/media/gallery/living-1.avif', width: 720, height: 1079, alt: 'Living room with floor-to-ceiling glass onto the terrace' },
+  { id: 'living-2', category: 'Living', type: 'image', src: '/media/gallery/living-2.avif', width: 720, height: 481, alt: 'Living room seating area' },
+  { id: 'living-3', category: 'Living', type: 'image', src: '/media/gallery/living-3.avif', width: 720, height: 481, alt: 'Living room, view toward the pool deck' },
+  { id: 'living-4', category: 'Living', type: 'image', src: '/media/gallery/living-4.avif', width: 1200, height: 801, alt: 'Living pavilion with curated furnishings' },
+  { id: 'living-5', category: 'Living', type: 'image', src: '/media/gallery/living-5.avif', width: 720, height: 481, alt: 'Living room lounge seating' },
+  { id: 'living-6', category: 'Living', type: 'image', src: '/media/gallery/living-6.webp', width: 720, height: 481, alt: 'Living room, evening light' },
+  { id: 'living-7', category: 'Living', type: 'image', src: '/media/gallery/living-7.avif', width: 720, height: 1079, alt: 'Living room detail' },
+  { id: 'living-8', category: 'Living', type: 'image', src: '/media/gallery/living-8.avif', width: 720, height: 1079, alt: 'Living room, glass facade' },
 
-  { id: 'int-1', category: 'Interior', type: 'image', src: '/media/gallery/interior-1.svg', width: 1200, height: 900, alt: 'Living pavilion with ocean view' },
-  { id: 'int-2', category: 'Interior', type: 'image', src: '/media/gallery/interior-2.svg', width: 1200, height: 1500, alt: 'Formal dining space' },
-  { id: 'int-3', category: 'Interior', type: 'image', src: '/media/gallery/interior-3.svg', width: 1200, height: 900, alt: 'Lounge with curated furnishings' },
+  { id: 'bedroom-1-1', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-1-1.avif', width: 720, height: 481, alt: 'Bedroom 1' },
+  { id: 'bedroom-1-2', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-1-2.avif', width: 720, height: 1079, alt: 'Bedroom 1, alternate view' },
+  { id: 'bedroom-1-3', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-1-3.avif', width: 720, height: 481, alt: 'Bedroom 1, detail' },
+  { id: 'bedroom-1-4', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-1-4.avif', width: 720, height: 1079, alt: 'Bedroom 1, natural light' },
+  { id: 'bedroom-2-1', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-2-1.avif', width: 720, height: 481, alt: 'Bedroom 2' },
+  { id: 'bedroom-2-2', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-2-2.webp', width: 720, height: 481, alt: 'Bedroom 2, alternate view' },
+  { id: 'bedroom-3-1', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-3-1.avif', width: 1200, height: 801, alt: 'Bedroom 3' },
+  { id: 'bedroom-3-2', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-3-2.avif', width: 720, height: 481, alt: 'Bedroom 3, detail' },
+  { id: 'bedroom-3-3', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-3-3.avif', width: 720, height: 481, alt: 'Bedroom 3, seating nook' },
+  { id: 'bedroom-3-4', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-3-4.avif', width: 720, height: 481, alt: 'Bedroom 3, alternate view' },
+  { id: 'bedroom-3-5', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-3-5.avif', width: 720, height: 1079, alt: 'Bedroom 3, natural light' },
+  { id: 'bedroom-3-6', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-3-6.avif', width: 720, height: 481, alt: 'Bedroom 3, en-suite view' },
+  { id: 'bedroom-4-1', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-4-1.avif', width: 1200, height: 801, alt: 'Bedroom 4' },
+  { id: 'bedroom-5-1', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-5-1.avif', width: 1200, height: 801, alt: 'Bedroom 5' },
+  { id: 'bedroom-6-1', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-6-1.avif', width: 1200, height: 801, alt: 'Bedroom 6' },
 
-  { id: 'bed-1', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedrooms-1.svg', width: 1200, height: 900, alt: 'Master suite with ocean-facing bed' },
-  { id: 'bed-2', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedrooms-2.svg', width: 1200, height: 1500, alt: 'Guest suite with private terrace' },
-  { id: 'bed-3', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedrooms-3.svg', width: 1200, height: 900, alt: 'Junior suite with garden view' },
+  { id: 'bathroom-1-1', category: 'Bathrooms', type: 'image', src: '/media/gallery/bathroom-1-1.avif', width: 1200, height: 1798, alt: 'Bathroom 1, en-suite to Bedroom 1' },
+  { id: 'bathroom-2-1', category: 'Bathrooms', type: 'image', src: '/media/gallery/bathroom-2-1.avif', width: 1200, height: 801, alt: 'Bathroom 2, en-suite to Bedroom 2' },
+  { id: 'bathroom-3-1', category: 'Bathrooms', type: 'image', src: '/media/gallery/bathroom-3-1.avif', width: 1200, height: 900, alt: 'Bathroom 3, en-suite to Bedroom 3' },
+  { id: 'bathroom-4-1', category: 'Bathrooms', type: 'image', src: '/media/gallery/bathroom-4-1.avif', width: 1200, height: 901, alt: 'Bathroom 4, en-suite to Bedroom 4' },
+  { id: 'bathroom-5-1', category: 'Bathrooms', type: 'image', src: '/media/gallery/bathroom-5-1.avif', width: 1200, height: 801, alt: 'Bathroom 5, en-suite to Bedroom 5' },
+  { id: 'bathroom-6-1', category: 'Bathrooms', type: 'image', src: '/media/gallery/bathroom-6-1.avif', width: 1200, height: 801, alt: 'Bathroom 6, en-suite to Bedroom 6' },
 
-  { id: 'pool-1', category: 'Pool', type: 'image', src: '/media/gallery/pool-1.svg', width: 1200, height: 900, alt: 'Private pool deck framed by palms' },
-  { id: 'pool-2', category: 'Pool', type: 'image', src: '/media/gallery/pool-2.svg', width: 1200, height: 1500, alt: 'Pool deck loungers at sunset' },
-  { id: 'pool-3', category: 'Pool', type: 'image', src: '/media/gallery/pool-3.svg', width: 1200, height: 900, alt: 'Pool illuminated at night' },
+  { id: 'pool-1', category: 'Pool', type: 'image', src: '/media/gallery/pool-1.avif', width: 1200, height: 927, alt: 'Private pool deck framed by palms' },
+  { id: 'pool-2', category: 'Pool', type: 'image', src: '/media/gallery/pool-2.avif', width: 720, height: 1079, alt: 'Pool, view from the deck' },
+  { id: 'pool-3', category: 'Pool', type: 'image', src: '/media/gallery/pool-3.avif', width: 720, height: 1079, alt: 'Pool, alternate angle' },
 
-  { id: 'kit-1', category: 'Kitchen', type: 'image', src: '/media/gallery/kitchen-1.svg', width: 1200, height: 900, alt: 'Chef kitchen with marble island' },
-  { id: 'kit-2', category: 'Kitchen', type: 'image', src: '/media/gallery/kitchen-2.svg', width: 1200, height: 1500, alt: 'Outdoor dining and grill station' },
+  { id: 'patio-1', category: 'Patio & Terrace', type: 'image', src: '/media/gallery/patio-1.avif', width: 720, height: 481, alt: 'Patio seating area' },
+  { id: 'patio-2', category: 'Patio & Terrace', type: 'image', src: '/media/gallery/patio-2.avif', width: 720, height: 481, alt: 'Patio, alternate view' },
+  { id: 'terrace-1', category: 'Patio & Terrace', type: 'image', src: '/media/gallery/terrace-1.avif', width: 720, height: 481, alt: 'Terrace' },
+  { id: 'terrace-2', category: 'Patio & Terrace', type: 'image', src: '/media/gallery/terrace-2.avif', width: 720, height: 481, alt: 'Terrace, alternate view' },
 
-  { id: 'view-1', category: 'Views', type: 'image', src: '/media/gallery/views-1.svg', width: 1200, height: 900, alt: 'Panoramic coastline view from the terrace' },
-  { id: 'view-2', category: 'Views', type: 'image', src: '/media/gallery/views-2.svg', width: 1200, height: 1500, alt: 'Sunset view from the rooftop deck' },
-
-  {
-    id: 'video-1',
-    category: 'Video Tour',
-    type: 'video',
-    // Drop a real MP4 at this path (public/media/videos/villa-tour.mp4) to
-    // enable in-lightbox playback. Until then the poster image is shown.
-    src: '/media/videos/villa-tour.mp4',
-    poster: '/media/gallery/video-tour-poster.svg',
-    width: 1600,
-    height: 900,
-    alt: 'Villa video walkthrough',
-    caption: 'Full walkthrough — 3 min',
-  },
+  { id: 'games-room-1', category: 'Games Room', type: 'image', src: '/media/gallery/games-room-1.avif', width: 1200, height: 1600, alt: 'Games room' },
 ];
 
 export const galleryCategories = [
   'All',
-  'Exterior',
-  'Interior',
+  'Living',
   'Bedrooms',
+  'Bathrooms',
   'Pool',
-  'Kitchen',
-  'Views',
-  'Video Tour',
+  'Patio & Terrace',
+  'Games Room',
 ] as const;

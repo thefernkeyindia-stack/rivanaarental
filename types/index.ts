@@ -1,11 +1,10 @@
 export type GalleryCategory =
-  | 'Exterior'
-  | 'Interior'
+  | 'Living'
   | 'Bedrooms'
+  | 'Bathrooms'
   | 'Pool'
-  | 'Kitchen'
-  | 'Views'
-  | 'Video Tour';
+  | 'Patio & Terrace'
+  | 'Games Room';
 
 export interface GalleryItem {
   id: string;

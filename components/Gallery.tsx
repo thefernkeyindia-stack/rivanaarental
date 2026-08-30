@@ -77,7 +77,6 @@ export default function Gallery() {
                   alt={item.alt}
                   fill
                   sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                  unoptimized
                   className="object-cover transition-transform duration-700 ease-luxe group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-charcoal-950/0 transition-colors duration-300 group-hover:bg-charcoal-950/20" />
