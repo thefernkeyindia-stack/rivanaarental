@@ -47,20 +47,12 @@ export default function AboutVilla() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.15}>
-          {/*
-            Showcase frame for the living room photo. Swap the placeholder
-            below for the real image: drop the file at
-            public/media/gallery/about-villa.jpg (or .png/.webp), change
-            `src` to that path, and remove `unoptimized` to get full
-            next/image resizing.
-          */}
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-soft">
             <Image
-              src="/media/gallery/about-villa.svg"
+              src="/media/gallery/about-villa.avif"
               alt="The living room at The Fern Key, with floor-to-ceiling glass onto the terrace"
               fill
               sizes="(min-width: 1024px) 40vw, 90vw"
-              unoptimized
               className="object-cover"
             />
           </div>
