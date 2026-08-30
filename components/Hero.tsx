@@ -10,7 +10,10 @@ export default function Hero() {
   const opacity = useTransform(scrollY, [0, 500], [1, 0]);
 
   return (
-    <section id="home" className="relative flex h-[100svh] min-h-[560px] items-end overflow-hidden bg-charcoal-950">
+    <section
+      id="home"
+      className="relative flex min-h-[max(100svh,560px)] items-end overflow-hidden bg-charcoal-950"
+    >
       <motion.div style={{ y }} className="absolute inset-0">
         <video
           autoPlay
@@ -33,7 +36,7 @@ export default function Hero() {
 
       <motion.div
         style={{ opacity }}
-        className="container-luxe relative z-10 pb-24 pt-40 [text-shadow:0_2px_16px_rgba(13,31,22,0.65)] sm:pb-28"
+        className="container-luxe relative z-10 pb-16 pt-28 [text-shadow:0_2px_16px_rgba(13,31,22,0.65)] sm:pb-24 sm:pt-32 lg:pt-40"
       >
         <motion.p
           initial={{ opacity: 0, y: 16 }}
@@ -47,7 +50,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.45, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-4 max-w-3xl text-balance font-serif text-5xl leading-[1.05] text-ivory-100 sm:text-6xl md:text-7xl"
+          className="mt-4 max-w-3xl text-balance font-serif text-4xl leading-[1.1] text-ivory-100 sm:text-6xl sm:leading-[1.05] md:text-7xl"
         >
           {siteConfig.tagline}
         </motion.h1>
