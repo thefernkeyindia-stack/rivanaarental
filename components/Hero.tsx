@@ -31,29 +31,19 @@ export default function Hero() {
         </video>
       </motion.div>
 
-      {/* Multi-stop so opacity stays strong across the whole text block
-          (not just right at the very bottom) — a two-stop gradient was
-          fading to near-transparent by the time it reached the heading,
-          which washed out against bright parts of the video. Only the top
-          ~15% of the frame is left fully clear. */}
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-[88%]"
-        style={{
-          background:
-            'linear-gradient(to top, rgba(13,31,22,0.88) 0%, rgba(13,31,22,0.8) 30%, rgba(13,31,22,0.55) 55%, rgba(13,31,22,0.18) 80%, rgba(13,31,22,0) 100%)',
-        }}
-      />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-charcoal-950/40 to-transparent" />
+      {/* No tint/gradient over the video at all — legibility comes purely
+          from a heavy, layered text-shadow (tight dark outline + soft
+          glow) on the text itself. */}
 
       <motion.div
         style={{ opacity }}
-        className="container-luxe relative z-10 pb-16 pt-28 [text-shadow:0_2px_20px_rgba(13,31,22,0.9)] sm:pb-24 sm:pt-32 lg:pt-40"
+        className="container-luxe relative z-10 pb-16 pt-28 [text-shadow:0_1px_1px_rgba(0,0,0,1),0_1px_4px_rgba(0,0,0,0.95),0_4px_14px_rgba(0,0,0,0.85),0_10px_40px_rgba(0,0,0,0.65)] sm:pb-24 sm:pt-32 lg:pt-40"
       >
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.7 }}
-          className="eyebrow text-gold-300"
+          className="eyebrow text-gold-300 [-webkit-text-stroke:0.5px_rgba(0,0,0,0.4)]"
         >
           Luxury Rental Stays
         </motion.p>
@@ -61,7 +51,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.45, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-4 max-w-3xl text-balance font-serif text-4xl leading-[1.1] text-ivory-100 sm:text-6xl sm:leading-[1.05] md:text-7xl"
+          className="mt-4 max-w-3xl text-balance font-serif text-4xl leading-[1.1] text-ivory-100 [-webkit-text-stroke:1px_rgba(0,0,0,0.35)] sm:text-6xl sm:leading-[1.05] md:text-7xl"
         >
           {siteConfig.tagline}
         </motion.h1>
@@ -69,7 +59,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.7 }}
-          className="mt-6 max-w-xl text-balance text-base text-ivory-100/95 sm:text-lg"
+          className="mt-6 max-w-xl text-balance text-base text-ivory-100 [-webkit-text-stroke:0.4px_rgba(0,0,0,0.4)] sm:text-lg"
         >
           {siteConfig.description}
         </motion.p>
