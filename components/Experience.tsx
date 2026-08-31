@@ -18,8 +18,8 @@ export default function Experience() {
 
         <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {attractions.map((place, i) => (
-            <ScrollReveal key={place.id} delay={i * 0.08}>
-              <div className="group overflow-hidden rounded-xl bg-white shadow-card">
+            <ScrollReveal key={place.id} delay={i * 0.08} className="h-full">
+              <div className="group flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-card">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
                     src={place.image}
@@ -30,7 +30,7 @@ export default function Experience() {
                     className="object-cover transition-transform duration-700 ease-luxe group-hover:scale-105"
                   />
                 </div>
-                <div className="p-5">
+                <div className="flex flex-1 flex-col p-5">
                   <p className="text-[11px] uppercase tracking-widest2 text-gold-600">{place.category}</p>
                   <h3 className="mt-1.5 font-serif text-lg text-charcoal-950">{place.name}</h3>
                   <p className="mt-2 text-sm text-charcoal-600">{place.description}</p>
