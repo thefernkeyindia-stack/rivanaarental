@@ -31,15 +31,23 @@ export default function Hero() {
         </video>
       </motion.div>
 
-      {/* Confined to the bottom third, where the text sits, so the rest of
-          the video stays fully clear. Fades to nothing well before the
-          midpoint of the frame. */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-charcoal-950/75 via-charcoal-950/25 to-transparent" />
+      {/* Multi-stop so opacity stays strong across the whole text block
+          (not just right at the very bottom) — a two-stop gradient was
+          fading to near-transparent by the time it reached the heading,
+          which washed out against bright parts of the video. Only the top
+          ~15% of the frame is left fully clear. */}
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[88%]"
+        style={{
+          background:
+            'linear-gradient(to top, rgba(13,31,22,0.88) 0%, rgba(13,31,22,0.8) 30%, rgba(13,31,22,0.55) 55%, rgba(13,31,22,0.18) 80%, rgba(13,31,22,0) 100%)',
+        }}
+      />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-charcoal-950/40 to-transparent" />
 
       <motion.div
         style={{ opacity }}
-        className="container-luxe relative z-10 pb-16 pt-28 [text-shadow:0_2px_16px_rgba(13,31,22,0.65)] sm:pb-24 sm:pt-32 lg:pt-40"
+        className="container-luxe relative z-10 pb-16 pt-28 [text-shadow:0_2px_20px_rgba(13,31,22,0.9)] sm:pb-24 sm:pt-32 lg:pt-40"
       >
         <motion.p
           initial={{ opacity: 0, y: 16 }}
@@ -61,7 +69,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.7 }}
-          className="mt-6 max-w-xl text-balance text-base text-ivory-100/80 sm:text-lg"
+          className="mt-6 max-w-xl text-balance text-base text-ivory-100/95 sm:text-lg"
         >
           {siteConfig.description}
         </motion.p>
