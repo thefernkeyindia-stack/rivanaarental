@@ -67,7 +67,7 @@ from. Once you have the real logo as an image file:
 `data/gallery.ts` now points at real photography of Ava Villa in
 `public/media/gallery/` (Living, Bedrooms 1–6, Bathrooms 1–6, Pool,
 Patio & Terrace, Games Room), and the hero banner plays a real looping
-background video — `public/media/videos/hero-living-room.mp4`, wired up in
+background video — `public/media/videos/hero-reel.mp4`, wired up in
 `components/Hero.tsx`.
 
 To add or swap photos:
@@ -80,7 +80,7 @@ To add or swap photos:
    SVGs for nearby attractions and guest avatars — swap those the same way
    if real photos become available.
 
-To swap the hero video, replace `public/media/videos/hero-living-room.mp4`
+To swap the hero video, replace `public/media/videos/hero-reel.mp4`
 (keep the filename, or update the `<source>` `src` in `Hero.tsx`). A 16:9
 clip, muted-friendly (no dialogue), H.264/AAC MP4 works best — that's the
 one universally-supported combo across Chrome, Safari, and Firefox for

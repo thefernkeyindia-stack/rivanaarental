@@ -27,7 +27,7 @@ export default function Hero() {
           disablePictureInPicture
           disableRemotePlayback
         >
-          <source src="/media/videos/hero-living-room.mp4" type="video/mp4" />
+          <source src="/media/videos/hero-reel.mp4" type="video/mp4" />
         </video>
       </motion.div>
 
