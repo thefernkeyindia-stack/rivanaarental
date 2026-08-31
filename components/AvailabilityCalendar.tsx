@@ -20,12 +20,16 @@ export default function AvailabilityCalendar({ range, onRangeChange, guests, onG
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  // A 2-month calendar is ~592px wide and only fits inside the booking
-  // card from the `md` breakpoint up — below that it overflowed the white
-  // card on narrow screens, so fall back to a single month there.
+  // The booking card sits in a 2-column grid from `lg` (1024px) up, which
+  // actually makes its column narrower than the full-width card below
+  // that breakpoint — so a 2-month calendar has room to breathe only once
+  // the page's max-width container caps out (container-luxe: max-w-8xl =
+  // 1440px, giving each column enough width). Below that — including the
+  // 1024-1439px range where the grid has already split into two narrow
+  // columns — a single month avoids the calendar overflowing its card.
   const [numberOfMonths, setNumberOfMonths] = useState(1);
   useEffect(() => {
-    const mq = window.matchMedia('(min-width: 768px)');
+    const mq = window.matchMedia('(min-width: 1440px)');
     const update = () => setNumberOfMonths(mq.matches ? 2 : 1);
     update();
     mq.addEventListener('change', update);

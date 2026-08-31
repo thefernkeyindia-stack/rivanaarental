@@ -60,11 +60,15 @@
   }
 }
 
-/* react-day-picker theme overrides to match the villa palette */
+/* react-day-picker theme overrides to match the villa palette.
+   !important on the custom properties because the library's own
+   dist/style.css (imported inside AvailabilityCalendar.tsx) ends up
+   later in the compiled stylesheet than this file, so a plain same-
+   specificity override here would otherwise lose the cascade tie. */
 .rdp {
-  --rdp-cell-size: 42px;
-  --rdp-accent-color: #b78a4a;
-  --rdp-background-color: #f0e2c4;
+  --rdp-cell-size: 42px !important;
+  --rdp-accent-color: #b78a4a !important;
+  --rdp-background-color: #f0e2c4 !important;
   margin: 0;
 }
 .rdp-day_selected,
@@ -81,4 +85,25 @@
 .rdp-day_today {
   font-weight: 700;
   color: #b78a4a;
+}
+
+/* The 2-month layout (react-day-picker adds .rdp-multiple_months
+   automatically) needs to fit inside the booking card's column, which is
+   narrower than 2 * 42px-cell months + gutters. Shrink cells and the
+   gap between months so both stay fully visible with no horizontal
+   scrollbar. */
+.rdp-multiple_months {
+  --rdp-cell-size: 34px !important;
+}
+.rdp-multiple_months .rdp-month {
+  margin: 0 0.5em;
+}
+.rdp-multiple_months .rdp-month:first-child {
+  margin-left: 0;
+}
+.rdp-multiple_months .rdp-month:last-child {
+  margin-right: 0;
+}
+.rdp-multiple_months .rdp-caption_label {
+  font-size: 15px;
 }
