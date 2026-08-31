@@ -3,12 +3,12 @@ import type { AttractionItem } from '@/types';
 export const attractions: AttractionItem[] = [
   {
     id: 'attr-beach',
-    name: 'Anjuna Beach',
+    name: 'Candolim Beach',
     category: 'Beach',
-    distance: '3.5 km',
-    duration: '10 min drive',
+    distance: '8 km',
+    duration: '18 min drive',
     image: '/media/gallery/attraction-beach.svg',
-    description: 'Iconic North Goa beach with the famous Wednesday flea market and beach shacks.',
+    description: 'A calmer, upscale North Goa beach lined with shacks and beach clubs, minutes from Fort Aguada.',
   },
   {
     id: 'attr-dining',
