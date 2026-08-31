@@ -7,6 +7,7 @@ import { z } from 'zod';
 import { format } from 'date-fns';
 import type { DateRange } from 'react-day-picker';
 import { CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import { siteConfig } from '@/config/site';
 
 const enquirySchema = z.object({
   name: z.string().min(2, 'Please enter your full name'),
@@ -26,15 +27,37 @@ interface Props {
 }
 
 /**
- * Mock submission handler. Replace this with a real request (e.g.
- * `fetch('/api/enquiry', { method: 'POST', body: JSON.stringify(values) })`)
- * once a booking backend/API is wired up — the form state machine below
- * (idle/submitting/success/error) already supports that swap with no
- * other changes.
+ * Sends the enquiry via Web3Forms (https://web3forms.com) — a no-backend
+ * form-to-email service. Requires `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` (see
+ * .env.example); without it, this throws so the form surfaces the error
+ * state rather than silently pretending to succeed.
  */
 async function submitEnquiry(values: EnquiryValues): Promise<void> {
-  await new Promise((resolve) => setTimeout(resolve, 1100));
-  console.info('Enquiry submitted (mock):', values);
+  if (!siteConfig.web3FormsAccessKey) {
+    throw new Error('Missing NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY');
+  }
+
+  const res = await fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({
+      access_key: siteConfig.web3FormsAccessKey,
+      subject: `New booking enquiry from ${values.name} — ${siteConfig.villaName}`,
+      from_name: `${siteConfig.name} website`,
+      name: values.name,
+      email: values.email,
+      phone: values.phone,
+      check_in: values.checkIn,
+      check_out: values.checkOut,
+      guests: values.guests,
+      message: values.message || '(no message)',
+    }),
+  });
+
+  const data = await res.json();
+  if (!res.ok || !data.success) {
+    throw new Error(data.message || 'Web3Forms submission failed');
+  }
 }
 
 export default function BookingEnquiryForm({ range, guests }: Props) {

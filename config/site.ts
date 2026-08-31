@@ -42,6 +42,11 @@ export const siteConfig = {
     process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED_SRC ||
     'https://www.google.com/maps?q=15.5432353,73.8176067&z=16&output=embed',
 
+  // Web3Forms access key — get one free at https://web3forms.com by
+  // entering the inbox that should receive booking enquiries (no account
+  // needed). Wired up in components/BookingEnquiryForm.tsx.
+  web3FormsAccessKey: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || '',
+
   // --- Social -------------------------------------------------------------
   social: {
     instagram: 'https://instagram.com/thefernkey',

@@ -98,11 +98,20 @@ an iCal export from Airbnb, or call a property-management-system API — by
 replacing the static array with data fetched the same shape.
 
 The enquiry form (`components/BookingEnquiryForm.tsx`) validates with
-Zod + React Hook Form and currently "submits" via a mocked async function
-(`submitEnquiry`) that just logs to the console after a short delay. Swap
-that function for a real request (e.g. `fetch('/api/enquiry', { method:
-'POST', ... })` backed by a Next.js Route Handler, or a third-party form
-service) — the idle/submitting/success/error UI states already support it.
+Zod + React Hook Form and submits via [Web3Forms](https://web3forms.com) —
+a free, no-backend form-to-email service. To receive enquiries:
+
+1. Go to https://web3forms.com and enter the inbox that should receive
+   them (e.g. `thefernkeyindia@gmail.com`) — no account needed.
+2. Copy the "Access Key" it gives you.
+3. Set it as `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` — locally in `.env.local`
+   (copy `.env.example`), and in Vercel under Project Settings →
+   Environment Variables for production, then redeploy.
+
+Without that key set, submissions fail and the form shows its error state
+(by design, rather than silently pretending to succeed). The
+idle/submitting/success/error UI states are in `submitEnquiry` /
+`BookingEnquiryForm.tsx` if a different backend is wanted later.
 
 ## Tech stack
 
