@@ -26,7 +26,6 @@ export default function Experience() {
                     alt={place.name}
                     fill
                     sizes="(min-width: 1024px) 25vw, 50vw"
-                    unoptimized
                     className="object-cover transition-transform duration-700 ease-luxe group-hover:scale-105"
                   />
                 </div>

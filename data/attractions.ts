@@ -7,7 +7,7 @@ export const attractions: AttractionItem[] = [
     category: 'Beach',
     distance: '8 km',
     duration: '18 min drive',
-    image: '/media/gallery/attraction-beach.svg',
+    image: '/media/gallery/attraction-candolim-beach.webp',
     description: 'A calmer, upscale North Goa beach lined with shacks and beach clubs, minutes from Fort Aguada.',
   },
   {
@@ -16,7 +16,7 @@ export const attractions: AttractionItem[] = [
     category: 'Fine Dining',
     distance: '5 km',
     duration: '12 min drive',
-    image: '/media/gallery/attraction-restaurant.svg',
+    image: '/media/gallery/attraction-thalassa.jpg',
     description: 'Cliffside Greek taverna in Vagator with sweeping sunset views over the Arabian Sea.',
   },
   {
@@ -25,7 +25,7 @@ export const attractions: AttractionItem[] = [
     category: 'Landmark',
     distance: '6 km',
     duration: '15 min drive',
-    image: '/media/gallery/attraction-marina.svg',
+    image: '/media/gallery/attraction-chapora-fort.jpg',
     description: 'A laterite hilltop fort with panoramic coastal views, best at sunset.',
   },
   {
@@ -34,7 +34,7 @@ export const attractions: AttractionItem[] = [
     category: 'Culture',
     distance: '2.5 km',
     duration: '7 min drive',
-    image: '/media/gallery/attraction-town.svg',
+    image: '/media/gallery/attraction-assagao-village.jpg',
     description: 'Boutique cafés, design stores, and art galleries along quiet, palm-lined lanes.',
   },
 ];
