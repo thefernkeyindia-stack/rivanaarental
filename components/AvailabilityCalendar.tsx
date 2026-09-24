@@ -4,8 +4,9 @@ import { useEffect, useState } from 'react';
 import { DayPicker, type DateRange } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import { Minus, Plus, Users } from 'lucide-react';
-import { getBookedDateRanges } from '@/lib/availability';
+import { getBookedDateRanges, mergeBookedDateRanges } from '@/lib/availability';
 import { minimumStayNights, maxBookingGuests } from '@/data/availability';
+import type { BookedRange } from '@/types';
 import { siteConfig } from '@/config/site';
 
 interface Props {
@@ -16,7 +17,23 @@ interface Props {
 }
 
 export default function AvailabilityCalendar({ range, onRangeChange, guests, onGuestsChange }: Props) {
-  const bookedRanges = getBookedDateRanges();
+  // Starts with the manual/static dates, then layers in the live Airbnb
+  // feed once it loads (app/api/availability) — falls back silently to the
+  // static list alone if that fetch fails or isn't configured.
+  const [bookedRanges, setBookedRanges] = useState(() => getBookedDateRanges());
+  useEffect(() => {
+    fetch('/api/availability')
+      .then((res) => res.json())
+      .then((data: { ranges: BookedRange[]; synced: boolean }) => {
+        if (data.synced && data.ranges.length > 0) {
+          setBookedRanges(mergeBookedDateRanges(data.ranges));
+        }
+      })
+      .catch(() => {
+        // Keep the static fallback already in state.
+      });
+  }, []);
+
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
@@ -91,7 +108,7 @@ export default function AvailabilityCalendar({ range, onRangeChange, guests, onG
       </div>
 
       <p className="mx-auto mt-6 max-w-sm text-center text-xs text-charcoal-900/55">
-        From a single night to a full season — every date shown here is bookable. For instant booking, check live
+        From a single night to a full season, every date shown here is bookable. For instant booking, check live
         availability on{' '}
         <a href={siteConfig.airbnbListingUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-gold-700">
           Airbnb

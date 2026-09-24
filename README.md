@@ -92,19 +92,35 @@ once those are all replaced with real raster photos too.
 
 ## Availability & booking
 
-`data/availability.ts` holds a mock array of booked date ranges. It's
-intentionally shaped so it can be swapped for a real feed later — e.g. sync
-an iCal export from Airbnb, or call a property-management-system API — by
-replacing the static array with data fetched the same shape.
+The calendar syncs with Airbnb automatically:
+
+1. In your Airbnb host dashboard, go to **Calendar → Availability settings
+   → Connect calendars → Export calendar** and copy the private `.ics`
+   link it gives you.
+2. Set it as `AIRBNB_ICAL_URL` (server-only, no `NEXT_PUBLIC_` prefix) —
+   locally in `.env.local` (copy `.env.example`), and in Vercel under
+   Project Settings → Environment Variables for production, then redeploy.
+
+`app/api/availability/route.ts` fetches that feed server-side (Airbnb
+blocks direct browser access), parses it with `lib/ical.ts`, and caches it
+for up to an hour. `components/AvailabilityCalendar.tsx` fetches this route
+on load and merges it with `data/availability.ts` — a manual list for
+anything Airbnb doesn't know about (owner use, maintenance, direct
+bookings). Without `AIRBNB_ICAL_URL` set, the site falls back to the manual
+list alone rather than breaking.
+
+This is one-way sync (Airbnb → site) by design: the site takes enquiries
+rather than instant bookings, so there's nothing on the site side that
+needs to be written back to Airbnb.
 
 The enquiry form (`components/BookingEnquiryForm.tsx`) validates with
-Zod + React Hook Form and submits via [Web3Forms](https://web3forms.com) —
-a free, no-backend form-to-email service. To receive enquiries:
+Zod + React Hook Form and submits via [Web3Forms](https://web3forms.com), a
+free, no-backend form-to-email service. To receive enquiries:
 
 1. Go to https://web3forms.com and enter the inbox that should receive
-   them (e.g. `thefernkeyindia@gmail.com`) — no account needed.
+   them (e.g. `thefernkeyindia@gmail.com`); no account needed.
 2. Copy the "Access Key" it gives you.
-3. Set it as `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` — locally in `.env.local`
+3. Set it as `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`, locally in `.env.local`
    (copy `.env.example`), and in Vercel under Project Settings →
    Environment Variables for production, then redeploy.
 

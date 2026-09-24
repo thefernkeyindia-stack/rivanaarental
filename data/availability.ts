@@ -1,19 +1,22 @@
 import type { BookedRange } from '@/types';
 
 /**
- * Mock availability data. Structured so it can be swapped for a real
- * booking-platform API (e.g. an iCal feed synced from Airbnb, or a
- * property-management-system endpoint) without touching the calendar UI —
- * just replace this static array with a fetched one of the same shape.
+ * Manually-set booked/blocked dates — kept even after the live Airbnb sync
+ * (see app/api/availability/route.ts) is wired up, for dates the Airbnb
+ * feed doesn't cover: e.g. owner use, maintenance, or bookings taken
+ * directly rather than through Airbnb. The live feed and this list are
+ * merged (see lib/availability.ts).
+ *
+ * Seeded below from the villa's actual Airbnb export as of 2026-09-24 —
+ * update this file directly for anything not already synced automatically.
  */
 export const bookedRanges: BookedRange[] = [
-  { from: '2026-08-20', to: '2026-08-25', label: 'Booked' },
-  { from: '2026-09-02', to: '2026-09-09', label: 'Booked' },
-  { from: '2026-09-18', to: '2026-09-21', label: 'Booked' },
-  { from: '2026-10-05', to: '2026-10-12', label: 'Booked' },
-  { from: '2026-10-24', to: '2026-10-24', label: 'Owner block' },
-  { from: '2026-11-20', to: '2026-11-30', label: 'Booked' },
-  { from: '2026-12-20', to: '2027-01-03', label: 'Holiday season — booked' },
+  { from: '2026-09-21', to: '2026-09-21', label: 'Blocked' },
+  { from: '2026-10-01', to: '2026-10-03', label: 'Booked' },
+  { from: '2026-10-13', to: '2026-10-17', label: 'Blocked' },
+  { from: '2026-12-27', to: '2026-12-29', label: 'Blocked' },
+  { from: '2026-12-30', to: '2027-01-01', label: 'Booked' },
+  { from: '2027-06-20', to: '2027-09-23', label: 'Blocked' },
 ];
 
 // No enforced minimum — single-night stays are bookable.
