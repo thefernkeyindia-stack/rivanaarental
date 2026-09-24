@@ -7,7 +7,7 @@ export const testimonials: Testimonial[] = [
     location: 'Mumbai',
     rating: 5,
     quote:
-      'We took the whole villa over New Year and it was flawless. The glass-fronted living room catches the evening light beautifully, and the pool deck became the heart of the trip — cousins in the water till midnight.',
+      'We took the whole villa over New Year and it was flawless. The glass-fronted living room catches the evening light beautifully, and the pool deck became the heart of the trip, with cousins in the water till midnight.',
     avatar: '/media/gallery/avatar-1.svg',
     source: 'Airbnb',
   },
@@ -17,7 +17,7 @@ export const testimonials: Testimonial[] = [
     location: 'New Delhi',
     rating: 5,
     quote:
-      'Tucked away in Sangolda but ten minutes from Assagao — exactly the balance we wanted. The caretaker replied on WhatsApp within minutes the entire stay. Spotless, private, and genuinely beautiful architecture.',
+      'Tucked away in Sangolda but ten minutes from Assagao, exactly the balance we wanted. The caretaker replied on WhatsApp within minutes the entire stay. Spotless, private, and genuinely beautiful architecture.',
     avatar: '/media/gallery/avatar-2.svg',
     source: 'Google',
   },
@@ -37,7 +37,7 @@ export const testimonials: Testimonial[] = [
     location: 'Hyderabad',
     rating: 5,
     quote:
-      'Our anniversary trip — the top-floor balcony at sunset over the palms is worth the booking alone. Every corner of this villa has been considered. We are already planning our next stay.',
+      'Our anniversary trip made the top-floor balcony at sunset over the palms worth the booking alone. Every corner of this villa has been considered. We are already planning our next stay.',
     avatar: '/media/gallery/avatar-4.svg',
     source: 'Airbnb',
   },
@@ -57,7 +57,7 @@ export const testimonials: Testimonial[] = [
     location: 'Chandigarh',
     rating: 5,
     quote:
-      'Traveled with our kids and parents both, and The Fern Key made it easy — safe, private, and the housekeeping was impeccable throughout. The pool and garden kept the little ones happy for hours.',
+      'Traveled with our kids and parents both, and The Fern Key made it easy: safe, private, and the housekeeping was impeccable throughout. The pool and garden kept the little ones happy for hours.',
     avatar: '/media/gallery/avatar-6.svg',
     source: 'Airbnb',
   },

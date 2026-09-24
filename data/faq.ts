@@ -5,7 +5,7 @@ export const faqItems: FaqItem[] = [
     id: 'faq-checkin',
     question: 'What are the check-in and check-out times?',
     answer:
-      'Check-in is from 3:00 PM and check-out is by 11:00 AM. Early check-in or late check-out can often be arranged for an additional fee, subject to availability — just ask via WhatsApp or the enquiry form.',
+      'Check-in is from 3:00 PM and check-out is by 11:00 AM. Early check-in or late check-out can often be arranged for an additional fee, subject to availability. Just ask via WhatsApp or the enquiry form.',
   },
   {
     id: 'faq-cancellation',
@@ -23,7 +23,7 @@ export const faqItems: FaqItem[] = [
     id: 'faq-guests',
     question: 'Can we host extra guests or events?',
     answer:
-      'The villa comfortably sleeps up to 10 guests. Additional day guests for small gatherings may be permitted with advance notice — large events or parties are not permitted out of respect for neighboring properties.',
+      'The villa comfortably sleeps up to 10 guests. Additional day guests for small gatherings may be permitted with advance notice. Large events or parties are not permitted out of respect for neighboring properties.',
   },
   {
     id: 'faq-deposit',
@@ -35,7 +35,7 @@ export const faqItems: FaqItem[] = [
     id: 'faq-staff',
     question: 'Is housekeeping or a private chef included?',
     answer:
-      'Mid-stay housekeeping is included for stays of 7 nights or longer. Daily housekeeping and private chef service can be added for an additional fee — let us know your preferences when you enquire.',
+      'Mid-stay housekeeping is included for stays of 7 nights or longer. Daily housekeeping and private chef service can be added for an additional fee. Let us know your preferences when you enquire.',
   },
   {
     id: 'faq-transport',

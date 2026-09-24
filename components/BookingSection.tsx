@@ -18,7 +18,7 @@ export default function BookingSection() {
           <p className="eyebrow">Availability</p>
           <h2 className="section-heading mt-3">Plan Your Stay</h2>
           <p className="mt-4 text-charcoal-600">
-            Choose your dates and send an enquiry — we&apos;ll confirm availability and pricing directly.
+            Choose your dates and send an enquiry. We&apos;ll confirm availability and pricing directly.
           </p>
         </ScrollReveal>
 

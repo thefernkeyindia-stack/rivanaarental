@@ -15,7 +15,7 @@ export const siteConfig = {
   villaName: 'Ava Villa',
   tagline: 'A Private Sanctuary on the Goa Coast',
   description:
-    'The Fern Key offers curated luxury rental stays in Goa. Our property, Ava Villa, is a six-bedroom architectural villa with cinematic sea-facing views, a pool, and quietly indulgent design — an intimate escape for discerning travelers.',
+    "The Fern Key offers curated luxury rental stays in Goa. Our property, Ava Villa, is a six-bedroom architectural villa with cinematic sea-facing views, a pool, and quietly indulgent design. It's an intimate escape for discerning travelers.",
   // Use `||` (not `??`) for every fallback below: Vercel/CI can inject an
   // env var as an empty string rather than leaving it unset, and `??` only
   // falls back on null/undefined — an empty NEXT_PUBLIC_SITE_URL previously
@@ -46,6 +46,15 @@ export const siteConfig = {
   // entering the inbox that should receive booking enquiries (no account
   // needed). Wired up in components/BookingEnquiryForm.tsx.
   web3FormsAccessKey: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || '',
+
+  // --- Owner & parent company (shown in the footer, for guest trust) ------
+  parentCompany: {
+    name: 'Rivanaa',
+    url: 'https://www.rivanaa.com/',
+  },
+  ownerName: 'Nikhil Chaudhary',
+  ownerPhone: '+91 96536 64118',
+  ownerPhoneDigits: '919653664118',
 
   // --- Social -------------------------------------------------------------
   social: {

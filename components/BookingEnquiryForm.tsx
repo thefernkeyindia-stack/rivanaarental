@@ -42,7 +42,7 @@ async function submitEnquiry(values: EnquiryValues): Promise<void> {
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
     body: JSON.stringify({
       access_key: siteConfig.web3FormsAccessKey,
-      subject: `New booking enquiry from ${values.name} — ${siteConfig.villaName}`,
+      subject: `New booking enquiry from ${values.name} for ${siteConfig.villaName}`,
       from_name: `${siteConfig.name} website`,
       name: values.name,
       email: values.email,
@@ -100,7 +100,7 @@ export default function BookingEnquiryForm({ range, guests }: Props) {
         <CheckCircle2 className="h-10 w-10 text-gold-600" strokeWidth={1.5} />
         <h3 className="mt-4 font-serif text-2xl text-charcoal-950">Enquiry Sent</h3>
         <p className="mt-2 max-w-xs text-sm text-charcoal-600">
-          Thank you — we typically respond within a few hours. Check your email for confirmation.
+          Thank you. We typically respond within a few hours. Check your email for confirmation.
         </p>
         <button type="button" onClick={() => setStatus('idle')} className="btn-ghost mt-6">
           Send another enquiry

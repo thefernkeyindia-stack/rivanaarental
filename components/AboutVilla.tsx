@@ -23,11 +23,11 @@ export default function AboutVilla() {
           <div className="mt-6 space-y-4 text-charcoal-700">
             <p>
               Set among the palms of North Goa, {siteConfig.villaName} is a six-bedroom architectural villa built
-              around light and greenery — floor-to-ceiling glass, warm stone, and hand-selected furnishings across
+              around light and greenery. Floor-to-ceiling glass, warm stone, and hand-selected furnishings across
               four open levels create a calm, restorative backdrop for a genuinely private escape.
             </p>
             <p>
-              Every floor opens onto the outdoors — from the glass-walled living room to the private pool deck —
+              Every floor opens onto the outdoors, from the glass-walled living room to the private pool deck,
               blurring the line between architecture and landscape. This is quiet luxury: understated, considered,
               and entirely yours for the duration of your stay.
             </p>

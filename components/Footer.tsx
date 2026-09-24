@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Mail, Phone, MapPin } from 'lucide-react';
+import { Instagram, Facebook, Mail, Phone, MapPin, User } from 'lucide-react';
 import { siteConfig } from '@/config/site';
 import { getWhatsappUrl } from '@/lib/links';
 import Logo from './Logo';
@@ -13,7 +13,18 @@ export default function Footer() {
         <div>
           <Logo light />
           <p className="mt-4 max-w-xs text-sm text-ivory-100/60">
-            A private luxury villa offering quiet, considered indulgence — the sanctuary your next escape deserves.
+            A private luxury villa offering quiet, considered indulgence. The sanctuary your next escape deserves.
+          </p>
+          <p className="mt-3 max-w-xs text-xs text-ivory-100/40">
+            A property by{' '}
+            <a
+              href={siteConfig.parentCompany.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-ivory-100/70 underline decoration-ivory-100/30 underline-offset-2 transition-colors hover:text-gold-400 hover:decoration-gold-400"
+            >
+              {siteConfig.parentCompany.name}
+            </a>
           </p>
           <div className="mt-6 flex items-center gap-3">
             <a
@@ -67,6 +78,16 @@ export default function Footer() {
               <a href={`tel:+${siteConfig.whatsappPhone}`} className="transition-colors hover:text-gold-400">
                 {siteConfig.contactPhoneDisplay}
               </a>
+            </li>
+            <li className="flex items-start gap-2.5">
+              <User className="mt-0.5 h-4 w-4 shrink-0 text-gold-500" />
+              <span>
+                Owner, {siteConfig.ownerName}
+                <br />
+                <a href={`tel:+${siteConfig.ownerPhoneDigits}`} className="transition-colors hover:text-gold-400">
+                  {siteConfig.ownerPhone}
+                </a>
+              </span>
             </li>
             <li className="flex items-start gap-2.5">
               <Mail className="mt-0.5 h-4 w-4 shrink-0 text-gold-500" />
