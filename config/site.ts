@@ -15,7 +15,7 @@ export const siteConfig = {
   villaName: 'Ava Villa',
   tagline: 'A Private Sanctuary on the Goa Coast',
   description:
-    "The Fern Key offers curated luxury rental stays in Goa. Our property, Ava Villa, is a six-bedroom architectural villa with cinematic sea-facing views, a pool, and quietly indulgent design. It's an intimate escape for discerning travelers.",
+    "The Fern Key offers curated luxury rental stays in Goa. Our property, Ava Villa, is a 6.5-bedroom architectural villa with cinematic sea-facing views, a pool, and quietly indulgent design. It's an intimate escape for discerning travelers.",
   // Use `||` (not `??`) for every fallback below: Vercel/CI can inject an
   // env var as an empty string rather than leaving it unset, and `??` only
   // falls back on null/undefined — an empty NEXT_PUBLIC_SITE_URL previously
@@ -67,9 +67,8 @@ export const siteConfig = {
   // --- Property facts -------------------------------------------------------
   facts: {
     guests: '12+',
-    bedrooms: 6,
-    bathrooms: 6,
-    sqft: 3800,
+    bedrooms: 6.5,
+    bathrooms: 8,
     checkIn: '2:00 PM',
     checkOut: '11:00 AM',
   },
