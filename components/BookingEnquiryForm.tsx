@@ -8,6 +8,8 @@ import { format } from 'date-fns';
 import type { DateRange } from 'react-day-picker';
 import { CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { siteConfig } from '@/config/site';
+import { getWhatsappUrl } from '@/lib/links';
+import { WhatsappIcon } from './icons/BrandIcons';
 
 const enquirySchema = z.object({
   name: z.string().min(2, 'Please enter your full name'),
@@ -60,8 +62,25 @@ async function submitEnquiry(values: EnquiryValues): Promise<void> {
   }
 }
 
+function buildWhatsappMessage(values: EnquiryValues): string {
+  const checkIn = values.checkIn ? format(new Date(`${values.checkIn}T00:00:00`), 'MMM d, yyyy') : '-';
+  const checkOut = values.checkOut ? format(new Date(`${values.checkOut}T00:00:00`), 'MMM d, yyyy') : '-';
+  return [
+    `Hi! I'd like to enquire about a stay at ${siteConfig.villaName}.`,
+    '',
+    `Name: ${values.name}`,
+    `Check-in: ${checkIn}`,
+    `Check-out: ${checkOut}`,
+    `Guests: ${values.guests}`,
+    values.message ? `Message: ${values.message}` : null,
+  ]
+    .filter((line) => line !== null)
+    .join('\n');
+}
+
 export default function BookingEnquiryForm({ range, guests }: Props) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [submittedValues, setSubmittedValues] = useState<EnquiryValues | null>(null);
 
   const {
     register,
@@ -87,6 +106,7 @@ export default function BookingEnquiryForm({ range, guests }: Props) {
     setStatus('submitting');
     try {
       await submitEnquiry(values);
+      setSubmittedValues(values);
       setStatus('success');
       reset({ ...values, name: '', email: '', phone: '', message: '' });
     } catch {
@@ -102,7 +122,17 @@ export default function BookingEnquiryForm({ range, guests }: Props) {
         <p className="mt-2 max-w-xs text-sm text-charcoal-600">
           Thank you. We typically respond within a few hours. Check your email for confirmation.
         </p>
-        <button type="button" onClick={() => setStatus('idle')} className="btn-ghost mt-6">
+        {submittedValues && (
+          <a
+            href={getWhatsappUrl(buildWhatsappMessage(submittedValues))}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#1fb857]"
+          >
+            <WhatsappIcon className="h-4 w-4" /> Message Us on WhatsApp
+          </a>
+        )}
+        <button type="button" onClick={() => setStatus('idle')} className="btn-ghost mt-4">
           Send another enquiry
         </button>
       </div>

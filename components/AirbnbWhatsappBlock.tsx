@@ -35,7 +35,7 @@ export default function AirbnbWhatsappBlock() {
             <WhatsappIcon className="h-6 w-6" />
           </span>
           <span>
-            <span className="block text-sm font-medium text-charcoal-950">Talk to Owner</span>
+            <span className="block text-sm font-medium text-charcoal-950">Get Instant Reply</span>
             <span className="block text-xs text-charcoal-500">Chat directly on WhatsApp</span>
           </span>
         </span>

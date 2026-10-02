@@ -123,7 +123,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-ivory-100/15 px-4 py-2.5 text-xs transition-colors hover:border-[#25D366]/50 hover:text-[#25D366]"
             >
-              <WhatsappIcon className="h-4 w-4" /> Talk to Owner
+              <WhatsappIcon className="h-4 w-4" /> Get Instant Reply
             </a>
           </div>
         </div>
