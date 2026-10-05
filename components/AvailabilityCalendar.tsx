@@ -62,7 +62,16 @@ export default function AvailabilityCalendar({ range, onRangeChange, guests, onG
           pagedNavigation
           selected={range}
           onSelect={onRangeChange}
-          min={minimumStayNights}
+          // react-day-picker's `min` prop has a real bug at min=1: it
+          // computes a disabled interval of {after: from, before: from}
+          // (equal bounds). Since `before` isn't *strictly* after `after`,
+          // the library's matcher treats that as an inverted/open interval
+          // — "disabled outside this range" — which for a zero-width range
+          // disables literally every other date, making it impossible to
+          // pick a check-out at all. min=1 means "no real constraint"
+          // anyway, so just omit the prop in that case; only pass it when
+          // there's an actual multi-night minimum to enforce.
+          min={minimumStayNights > 1 ? minimumStayNights : undefined}
           disabled={[{ before: today }, ...bookedRanges]}
           modifiers={{ booked: bookedRanges }}
           modifiersClassNames={{ booked: 'rdp-day_booked' }}

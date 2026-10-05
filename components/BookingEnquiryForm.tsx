@@ -6,14 +6,13 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { format } from 'date-fns';
 import type { DateRange } from 'react-day-picker';
-import { CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import { siteConfig } from '@/config/site';
 import { getWhatsappUrl } from '@/lib/links';
 import { WhatsappIcon } from './icons/BrandIcons';
 
 const enquirySchema = z.object({
   name: z.string().min(2, 'Please enter your full name'),
-  email: z.string().email('Enter a valid email address'),
   phone: z.string().min(7, 'Enter a valid phone number'),
   checkIn: z.string().min(1, 'Select your dates in the calendar above'),
   checkOut: z.string().min(1, 'Select your dates in the calendar above'),
@@ -29,36 +28,38 @@ interface Props {
 }
 
 /**
- * Sends the enquiry via Web3Forms (https://web3forms.com) — a no-backend
+ * Backup email record via Web3Forms (https://web3forms.com) — a no-backend
  * form-to-email service. Requires `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` (see
- * .env.example); without it, this throws so the form surfaces the error
- * state rather than silently pretending to succeed.
+ * .env.example). This runs in the background after the guest is already on
+ * their way to WhatsApp (see onSubmit below), so a missing key or a failed
+ * request here is logged but never blocks or alarms the guest — WhatsApp is
+ * the primary channel now, this is just a paper trail for the owner.
  */
-async function submitEnquiry(values: EnquiryValues): Promise<void> {
-  if (!siteConfig.web3FormsAccessKey) {
-    throw new Error('Missing NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY');
-  }
+async function submitEnquiryBackup(values: EnquiryValues): Promise<void> {
+  if (!siteConfig.web3FormsAccessKey) return;
 
-  const res = await fetch('https://api.web3forms.com/submit', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    body: JSON.stringify({
-      access_key: siteConfig.web3FormsAccessKey,
-      subject: `New booking enquiry from ${values.name} for ${siteConfig.villaName}`,
-      from_name: `${siteConfig.name} website`,
-      name: values.name,
-      email: values.email,
-      phone: values.phone,
-      check_in: values.checkIn,
-      check_out: values.checkOut,
-      guests: values.guests,
-      message: values.message || '(no message)',
-    }),
-  });
-
-  const data = await res.json();
-  if (!res.ok || !data.success) {
-    throw new Error(data.message || 'Web3Forms submission failed');
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        access_key: siteConfig.web3FormsAccessKey,
+        subject: `New booking enquiry from ${values.name} for ${siteConfig.villaName}`,
+        from_name: `${siteConfig.name} website`,
+        name: values.name,
+        phone: values.phone,
+        check_in: values.checkIn,
+        check_out: values.checkOut,
+        guests: values.guests,
+        message: values.message || '(no message)',
+      }),
+    });
+    const data = await res.json();
+    if (!res.ok || !data.success) {
+      throw new Error(data.message || 'Web3Forms submission failed');
+    }
+  } catch (error) {
+    console.error('Enquiry backup email failed (guest already reached via WhatsApp):', error);
   }
 }
 
@@ -79,7 +80,7 @@ function buildWhatsappMessage(values: EnquiryValues): string {
 }
 
 export default function BookingEnquiryForm({ range, guests }: Props) {
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<'idle' | 'success'>('idle');
   const [submittedValues, setSubmittedValues] = useState<EnquiryValues | null>(null);
 
   const {
@@ -90,7 +91,7 @@ export default function BookingEnquiryForm({ range, guests }: Props) {
     formState: { errors },
   } = useForm<EnquiryValues>({
     resolver: zodResolver(enquirySchema),
-    defaultValues: { name: '', email: '', phone: '', checkIn: '', checkOut: '', guests, message: '' },
+    defaultValues: { name: '', phone: '', checkIn: '', checkOut: '', guests, message: '' },
   });
 
   useEffect(() => {
@@ -102,16 +103,15 @@ export default function BookingEnquiryForm({ range, guests }: Props) {
     setValue('guests', guests);
   }, [guests, setValue]);
 
-  const onSubmit = async (values: EnquiryValues) => {
-    setStatus('submitting');
-    try {
-      await submitEnquiry(values);
-      setSubmittedValues(values);
-      setStatus('success');
-      reset({ ...values, name: '', email: '', phone: '', message: '' });
-    } catch {
-      setStatus('error');
-    }
+  // Opens WhatsApp synchronously (same tick as the click) so browsers don't
+  // treat it as an unrequested popup — anything async (the backup email)
+  // has to happen after, not before, this call.
+  const onSubmit = (values: EnquiryValues) => {
+    window.open(getWhatsappUrl(buildWhatsappMessage(values)), '_blank', 'noopener,noreferrer');
+    setSubmittedValues(values);
+    setStatus('success');
+    reset({ ...values, name: '', phone: '', message: '' });
+    void submitEnquiryBackup(values);
   };
 
   if (status === 'success') {
@@ -120,7 +120,7 @@ export default function BookingEnquiryForm({ range, guests }: Props) {
         <CheckCircle2 className="h-10 w-10 text-gold-600" strokeWidth={1.5} />
         <h3 className="mt-4 font-serif text-2xl text-charcoal-950">Enquiry Sent</h3>
         <p className="mt-2 max-w-xs text-sm text-charcoal-600">
-          Thank you. We typically respond within a few hours. Check your email for confirmation.
+          We&apos;ve opened WhatsApp with your enquiry ready to send. If it didn&apos;t open, use the button below.
         </p>
         {submittedValues && (
           <a
@@ -168,33 +168,18 @@ export default function BookingEnquiryForm({ range, guests }: Props) {
         {errors.name && <p className="mt-1 text-xs text-red-600">{errors.name.message}</p>}
       </div>
 
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-        <div>
-          <label htmlFor="email" className="mb-1.5 block text-xs uppercase tracking-wide text-charcoal-500">
-            Email
-          </label>
-          <input
-            id="email"
-            type="email"
-            {...register('email')}
-            className="w-full rounded-lg border border-charcoal-900/15 bg-white px-4 py-3 text-sm text-charcoal-950 outline-none transition-colors focus:border-gold-500"
-            placeholder="jane@email.com"
-          />
-          {errors.email && <p className="mt-1 text-xs text-red-600">{errors.email.message}</p>}
-        </div>
-        <div>
-          <label htmlFor="phone" className="mb-1.5 block text-xs uppercase tracking-wide text-charcoal-500">
-            Phone
-          </label>
-          <input
-            id="phone"
-            type="tel"
-            {...register('phone')}
-            className="w-full rounded-lg border border-charcoal-900/15 bg-white px-4 py-3 text-sm text-charcoal-950 outline-none transition-colors focus:border-gold-500"
-            placeholder="+1 555 012 3456"
-          />
-          {errors.phone && <p className="mt-1 text-xs text-red-600">{errors.phone.message}</p>}
-        </div>
+      <div>
+        <label htmlFor="phone" className="mb-1.5 block text-xs uppercase tracking-wide text-charcoal-500">
+          Phone
+        </label>
+        <input
+          id="phone"
+          type="tel"
+          {...register('phone')}
+          className="w-full rounded-lg border border-charcoal-900/15 bg-white px-4 py-3 text-sm text-charcoal-950 outline-none transition-colors focus:border-gold-500"
+          placeholder="+1 555 012 3456"
+        />
+        {errors.phone && <p className="mt-1 text-xs text-red-600">{errors.phone.message}</p>}
       </div>
 
       <div>
@@ -225,20 +210,8 @@ export default function BookingEnquiryForm({ range, guests }: Props) {
         />
       </div>
 
-      {status === 'error' && (
-        <p className="flex items-center gap-2 text-sm text-red-600">
-          <AlertCircle className="h-4 w-4" /> Something went wrong sending your enquiry. Please try again.
-        </p>
-      )}
-
-      <button type="submit" disabled={status === 'submitting'} className="btn-primary w-full">
-        {status === 'submitting' ? (
-          <>
-            <Loader2 className="h-4 w-4 animate-spin" /> Sending…
-          </>
-        ) : (
-          'Send Enquiry'
-        )}
+      <button type="submit" className="btn-primary w-full">
+        Send Enquiry
       </button>
     </form>
   );
