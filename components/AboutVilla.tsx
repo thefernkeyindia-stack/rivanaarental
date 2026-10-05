@@ -48,7 +48,7 @@ export default function AboutVilla() {
         <ScrollReveal delay={0.15}>
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-soft">
             <Image
-              src="/media/gallery/about-villa.avif"
+              src="/media/gallery/about-villa-hall.webp"
               alt="The living room at The Fern Key, with floor-to-ceiling glass onto the terrace"
               fill
               sizes="(min-width: 1024px) 40vw, 90vw"
