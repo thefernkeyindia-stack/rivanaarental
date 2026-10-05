@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
@@ -48,13 +47,13 @@ export default function Testimonials() {
                   “{t.quote}”
                 </p>
                 <div className="mt-6 flex items-center justify-center gap-3">
-                  <div className="relative h-10 w-10 overflow-hidden rounded-full">
-                    <Image src={t.avatar} alt={t.name} fill unoptimized className="object-cover" />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gold-500/15 text-sm font-medium text-gold-300">
+                    {t.name.charAt(0)}
                   </div>
                   <div className="text-left">
                     <p className="text-sm font-medium text-ivory-100">{t.name}</p>
                     <p className="text-xs text-ivory-100/50">
-                      {t.location} · {t.source}
+                      {t.location ? `${t.location} · ${t.source}` : t.source}
                     </p>
                   </div>
                 </div>

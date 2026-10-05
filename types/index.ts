@@ -25,10 +25,9 @@ export interface GalleryItem {
 export interface Testimonial {
   id: string;
   name: string;
-  location: string;
+  location?: string;
   rating: number;
   quote: string;
-  avatar: string;
   source: 'Airbnb' | 'Google' | 'Direct';
 }
 
