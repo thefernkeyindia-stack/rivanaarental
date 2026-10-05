@@ -32,7 +32,7 @@ export default function Experience() {
                 <div className="flex flex-1 flex-col p-5">
                   <p className="text-[11px] uppercase tracking-widest2 text-gold-600">{place.category}</p>
                   <h3 className="mt-1.5 font-serif text-lg text-charcoal-950">{place.name}</h3>
-                  <p className="mt-2 text-sm text-charcoal-600">{place.description}</p>
+                  <p className="mt-2 flex-1 text-sm text-charcoal-600">{place.description}</p>
                   <div className="mt-4 flex items-center gap-4 text-xs text-charcoal-500">
                     <span className="inline-flex items-center gap-1">
                       <MapPin className="h-3.5 w-3.5" /> {place.distance}
