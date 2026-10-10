@@ -15,24 +15,14 @@ export const galleryItems: GalleryItem[] = [
   { id: 'living-5', category: 'Living', type: 'image', src: '/media/gallery/living-5.webp', width: 1212, height: 1400, alt: 'Open dining and kitchen area', label: 'Dining & Kitchen' },
 
   { id: 'bedroom-1-1', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-1-1.webp', width: 1400, height: 1039, alt: 'Bedroom 1, four-poster bed', label: 'Bedroom 1', featured: true },
-  { id: 'bedroom-1-2', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-1-2.webp', width: 924, height: 1400, alt: 'Bedroom 1, detail', label: 'Bedroom 1' },
-  { id: 'bedroom-1-3', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-1-3.webp', width: 1149, height: 813, alt: 'Bedroom 1, alternate view', label: 'Bedroom 1' },
   { id: 'bedroom-2-1', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-2-1.webp', width: 1400, height: 969, alt: 'Bedroom 2, four-poster bed with floral headboard', label: 'Bedroom 2' },
-  { id: 'bedroom-2-2', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-2-2.webp', width: 1400, height: 878, alt: 'Bedroom 2, private garden seating nook', label: 'Bedroom 2' },
   { id: 'bedroom-3-1', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-3-1.webp', width: 1400, height: 969, alt: 'Bedroom 3, four-poster bed and wardrobe', label: 'Bedroom 3' },
-  { id: 'bedroom-3-2', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-3-2.webp', width: 1400, height: 878, alt: 'Bedroom 3, alternate view', label: 'Bedroom 3' },
   { id: 'bedroom-4-1', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-4-1.webp', width: 1400, height: 926, alt: 'Bedroom 4, canopy bed and sitting area', label: 'Bedroom 4' },
-  { id: 'bedroom-4-2', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-4-2.webp', width: 1131, height: 657, alt: 'Bedroom 4, lounge corner', label: 'Bedroom 4' },
   { id: 'bedroom-5-1', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-5-1.webp', width: 1400, height: 946, alt: 'Bedroom 5, four-poster bed with balcony access', label: 'Bedroom 5' },
-  { id: 'bedroom-5-2', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-5-2.webp', width: 1400, height: 856, alt: 'Bedroom 5, alternate view', label: 'Bedroom 5' },
   { id: 'bedroom-6-1', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-6-1.webp', width: 1400, height: 875, alt: 'Bedroom 6, rattan headboard bed', label: 'Bedroom 6' },
-  { id: 'bedroom-6-2', category: 'Bedrooms', type: 'image', src: '/media/gallery/bedroom-6-2.webp', width: 1400, height: 793, alt: 'Bedroom 6, sitting and work area', label: 'Bedroom 6' },
 
   { id: 'bathroom-1-1', category: 'Bathrooms', type: 'image', src: '/media/gallery/bathroom-1-1.webp', width: 1151, height: 722, alt: 'Bathroom 1, freestanding stone soaking tub', label: 'Bathroom 1', featured: true },
   { id: 'bathroom-4-1', category: 'Bathrooms', type: 'image', src: '/media/gallery/bathroom-4-1.webp', width: 1400, height: 916, alt: 'Bathroom 4, freestanding soaking tub', label: 'Bathroom 4' },
-  { id: 'bathroom-5-1', category: 'Bathrooms', type: 'image', src: '/media/gallery/bathroom-5-1.webp', width: 1011, height: 667, alt: 'Bathroom 5, double vanity and walk-in shower', label: 'Bathroom 5' },
-  { id: 'bathroom-6-1', category: 'Bathrooms', type: 'image', src: '/media/gallery/bathroom-6-1.webp', width: 658, height: 694, alt: 'Bathroom 6, vanity with patterned tile floor', label: 'Bathroom 6' },
-  { id: 'bathroom-6-2', category: 'Bathrooms', type: 'image', src: '/media/gallery/bathroom-6-2.webp', width: 642, height: 694, alt: 'Bathroom 6, walk-in shower', label: 'Bathroom 6' },
 
   { id: 'pool-1', category: 'Pool', type: 'image', src: '/media/gallery/pool-1.webp', width: 1083, height: 1400, alt: 'Private infinity pool facing dense greenery, aerial view', label: 'Pool', featured: true },
 
